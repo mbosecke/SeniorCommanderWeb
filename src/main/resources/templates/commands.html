@@ -1,0 +1,33 @@
+{% extends 'community' %}
+
+{% block 'tab-content' %}
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Trigger</th>
+        <th>Message</th>
+        <th>Implementation</th>
+        <th>Cooldown</th>
+        <th>Enabled</th>
+        <th>Access Level</th>
+    </tr>
+    {% for command in commands %}
+        <tr>
+            <th>{{command.trigger}}</th>
+            <td>{{command.message}}</td>
+            <td>{{command.implementation}}</td>
+            <td>{{command.cooldown}}</td>
+            <td>{{command.enabled}}</td>
+            <td>{{command.accessLevel}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<nav>
+    <ul class="pager">
+        <li class="previous"><a href="?page={{ page - 1}}"><span aria-hidden="true">&larr;</span> Newer</a></li>
+        <li class="next"><a href="?page={{ page + 1 }}">Older <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+</nav>
+
+{% endblock %}

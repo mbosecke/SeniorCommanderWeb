@@ -1,0 +1,31 @@
+{% extends 'community' %}
+
+{% block 'tab-content' %}
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Points</th>
+        <th>Access Level</th>
+        <th>Member Since</th>
+        <th>Last Chatted</th>
+    </tr>
+    {% for user in users %}
+        <tr>
+            <th>{{user.name}}</th>
+            <td>{{user.points}}</td>
+            <td>{{user.accessLevel}}</td>
+            <td>{{user.firstSeen | date('yyyy-MM-dd')}}</td>
+            <td>{{user.lastChatted | date('yyyy-MM-dd')}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<nav>
+    <ul class="pager">
+        <li class="previous"><a href="?page={{ page - 1}}"><span aria-hidden="true">&larr;</span> Newer</a></li>
+        <li class="next"><a href="?page={{ page + 1 }}">Older <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+</nav>
+
+{% endblock %}

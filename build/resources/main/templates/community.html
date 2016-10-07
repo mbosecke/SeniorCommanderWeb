@@ -1,0 +1,36 @@
+{% extends 'two-columns' %}
+
+{% block 'primary-content' %}
+<div class="page-header">
+    <h1>{{ communityUserModel.communityModel.name }}</h1>
+</div>
+
+{% set communityName = communityUserModel.communityModel.name %}
+<ul class="nav nav-tabs">
+
+    <li role="presentation" class="{{activeTab == 'dashboard'? 'active' : ''}}"><a
+            href="/community/{{communityName}}/dashboard">Dashboard</a></li>
+
+    <li role="presentation" class="{{activeTab == 'quotes'? 'active' : ''}}"><a
+            href="/community/{{communityName}}/quotes">Quotes</a></li>
+
+    <li role="presentation" class="{{activeTab == 'commands'? 'active' : ''}}"><a
+            href="/community/{{communityName}}/commands">Commands</a></li>
+
+    <li role="presentation" class="{{activeTab == 'users'? 'active' : ''}}"><a
+            href="/community/{{communityName}}/users">Users</a></li>
+
+    <li role="presentation" class="{{activeTab == 'timers'? 'active' : ''}}"><a
+            href="/community/{{communityName}}/timers">Timers</a></li>
+
+    <li role="presentation" class="{{activeTab == 'log'? 'active' : ''}}"><a
+            href="/community/{{communityName}}/log">Chat Log</a></li>
+
+    <li role="presentation" class="{{activeTab == 'admin'? 'active' : ''}}"><a
+            href="/community/{{communityName}}/admin">Admin</a></li>
+</ul>
+
+
+{% block 'tab-content' %}{% endblock %}
+
+{% endblock %}
