@@ -12,4 +12,5 @@ public interface QuoteService {
     QuoteModel findRandomQuote(String communityName);
 
     Page<QuoteModel> findQuotes(String communityName, Pageable pageable);
+
 }

@@ -35,4 +35,5 @@ public class QuoteServiceImpl implements QuoteService {
     public Page<QuoteModel> findQuotes(String communityName, Pageable pageable) {
         return quoteModelRepository.findAllByComunityName(communityName, pageable);
     }
+
 }

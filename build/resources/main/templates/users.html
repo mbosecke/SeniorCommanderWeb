@@ -1,8 +1,6 @@
-{% extends 'community' %}
+{% extends 'grid' %}
 
-{% block 'tab-content' %}
-
-<table class="table table-bordered table-striped">
+{% block 'table' %}
     <tr>
         <th>Name</th>
         <th>Points</th>
@@ -10,7 +8,7 @@
         <th>Member Since</th>
         <th>Last Chatted</th>
     </tr>
-    {% for user in users %}
+    {% for user in page %}
         <tr>
             <th>{{user.name}}</th>
             <td>{{user.points}}</td>
@@ -19,13 +17,4 @@
             <td>{{user.lastChatted | date('yyyy-MM-dd')}}</td>
         </tr>
     {% endfor %}
-</table>
-
-<nav>
-    <ul class="pager">
-        <li class="previous"><a href="?page={{ page - 1}}"><span aria-hidden="true">&larr;</span> Newer</a></li>
-        <li class="next"><a href="?page={{ page + 1 }}">Older <span aria-hidden="true">&rarr;</span></a></li>
-    </ul>
-</nav>
-
 {% endblock %}

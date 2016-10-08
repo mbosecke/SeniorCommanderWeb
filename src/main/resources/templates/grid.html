@@ -1,0 +1,35 @@
+{% extends 'community' %}
+
+{% block 'tab-content' %}
+
+<table class="table table-bordered table-striped">
+    {% block 'table' %}
+    {% endblock %}
+</table>
+
+<nav>
+    <ul class="pager">
+
+        {% if page.hasPrevious %}
+        <li
+                class="previous"><a
+                href="{{- pageUrl(page.previousPageable.pageNumber, page.previousPageable.pageSize) }}"><span
+                aria-hidden="true">&larr;</span>
+            Previous
+        </a></li>
+        {% endif %}
+
+        {% if page.hasNext %}
+        <li
+                class="next"><a
+                href="{{- pageUrl(page.nextPageable.pageNumber, page.nextPageable.pageSize) -}}">Next
+            <span aria-hidden="true">&rarr;</span></a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+{% endblock %}
+
+{% macro pageUrl(pageNumber, pageSize) %}
+    ?page={{pageNumber}}&size={{pageSize}}
+{% endmacro %}

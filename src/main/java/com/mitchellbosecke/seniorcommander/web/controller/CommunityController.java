@@ -44,8 +44,8 @@ public class CommunityController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("dashboard");
 
-        addCommonMavObjects(mav, communityName);
-        mav.addObject("activeTab", "dashboard");
+        addCommonMavObjects(mav, communityName, "dashboard");
+
         mav.addObject("randomQuote", quoteService.findRandomQuote(communityName));
         mav.addObject("topUsers", communityUserService.findTopUsers(communityName));
         return mav;
@@ -56,11 +56,9 @@ public class CommunityController {
                                @PageableDefault(page = 0, size = 50, direction = Sort.Direction.DESC, sort = {"createdDate"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("quotes");
+        addCommonMavObjects(mav, communityName, "quotes");
 
-        addCommonMavObjects(mav, communityName);
-        mav.addObject("activeTab", "quotes");
-        mav.addObject("quotes", quoteService.findQuotes(communityName, pageable));
-        mav.addObject("page", pageable.getPageNumber());
+        mav.addObject("page", quoteService.findQuotes(communityName, pageable));
         return mav;
     }
 
@@ -69,11 +67,9 @@ public class CommunityController {
                                  @PageableDefault(page = 0, size = 50, direction = Sort.Direction.ASC, sort = {"trigger"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("commands");
+        addCommonMavObjects(mav, communityName, "commands");
 
-        addCommonMavObjects(mav, communityName);
-        mav.addObject("activeTab", "commands");
-        mav.addObject("commands", commandService.findCommands(communityName, pageable));
-        mav.addObject("page", pageable.getPageNumber());
+        mav.addObject("page", commandService.findCommands(communityName, pageable));
         return mav;
     }
 
@@ -82,11 +78,9 @@ public class CommunityController {
                               @PageableDefault(page = 0, size = 50, direction = Sort.Direction.ASC, sort = {"name"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("users");
+        addCommonMavObjects(mav, communityName, "users");
 
-        addCommonMavObjects(mav, communityName);
-        mav.addObject("activeTab", "users");
-        mav.addObject("users", communityUserService.findUsers(communityName, pageable));
-        mav.addObject("page", pageable.getPageNumber());
+        mav.addObject("page", communityUserService.findUsers(communityName, pageable));
         return mav;
     }
 
@@ -95,8 +89,7 @@ public class CommunityController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("timers");
 
-        addCommonMavObjects(mav, communityName);
-        mav.addObject("activeTab", "timers");
+        addCommonMavObjects(mav, communityName, "timers");
         return mav;
     }
 
@@ -105,8 +98,7 @@ public class CommunityController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("log");
 
-        addCommonMavObjects(mav, communityName);
-        mav.addObject("activeTab", "log");
+        addCommonMavObjects(mav, communityName, "log");
         return mav;
     }
 
@@ -114,15 +106,14 @@ public class CommunityController {
     public ModelAndView admin(@PathVariable String communityName) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("admin");
-
-        addCommonMavObjects(mav, communityName);
-        mav.addObject("activeTab", "admin");
+        addCommonMavObjects(mav, communityName, "admin");
         return mav;
     }
 
-    private void addCommonMavObjects(ModelAndView mav, String communityName) {
+    private void addCommonMavObjects(ModelAndView mav, String communityName, String activeTab) {
         mav.addObject("username", SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         mav.addObject("communityUserModels", communityUserService.findMemberships());
         mav.addObject("communityUserModel", communityUserService.findCommunityUserModel(communityName));
+        mav.addObject("activeTab", activeTab);
     }
 }

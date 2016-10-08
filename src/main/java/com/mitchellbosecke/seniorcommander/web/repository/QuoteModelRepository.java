@@ -23,9 +23,6 @@ public interface QuoteModelRepository extends JpaRepository<QuoteModel, Long> {
     //@formatter:on
     List<QuoteModel> findRandomQuotes(@Param("communityName") String communityName, Pageable pageable);
 
-    //@formatter:off
-    @Query("SELECT qm FROM QuoteModel qm " +
-            "WHERE qm.communityModel.name = :communityName")
-    //@formatter:on
+    @Query("SELECT qm FROM QuoteModel qm WHERE qm.communityModel.name = :communityName")
     Page<QuoteModel> findAllByComunityName(@Param("communityName") String communityName, Pageable pageable);
 }
