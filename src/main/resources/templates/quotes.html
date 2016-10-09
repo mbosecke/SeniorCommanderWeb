@@ -2,10 +2,10 @@
 
 {% block 'table' %}
     <tr>
-        <th>#</th>
-        <th>Content</th>
-        <th>Author</th>
-        <th>Date</th>
+        {{ header(page, '#', 'communitySequence') }}
+        {{ header(page, 'Content', 'content') }}
+        {{ header(page, 'Author', 'author') }}
+        {{ header(page, 'Date', 'createdDate') }}
     </tr>
 
     {% for quote in page %}

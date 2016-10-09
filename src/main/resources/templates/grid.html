@@ -3,33 +3,62 @@
 {% block 'tab-content' %}
 
 <table class="table table-bordered table-striped">
-    {% block 'table' %}
-    {% endblock %}
+    {% block 'table' %}{% endblock %}
 </table>
 
-<nav>
-    <ul class="pager">
 
-        {% if page.hasPrevious %}
-        <li
-                class="previous"><a
-                href="{{- pageUrl(page.previousPageable.pageNumber, page.previousPageable.pageSize) }}"><span
-                aria-hidden="true">&larr;</span>
-            Previous
-        </a></li>
-        {% endif %}
+{% if page.hasNext or page.hasPrevious %}
+    <!-- hacky solution to get the only order -->
+    {% set order = null %}
+    {% for ord in page.sort %}
+        {% set order = ord %}
+    {% endfor %}
 
-        {% if page.hasNext %}
-        <li
-                class="next"><a
-                href="{{- pageUrl(page.nextPageable.pageNumber, page.nextPageable.pageSize) -}}">Next
-            <span aria-hidden="true">&rarr;</span></a></li>
-        {% endif %}
-    </ul>
-</nav>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="{{ page.hasPrevious? '' : 'disabled' }}">
+                <a href="{{- pageUrl(page.previousPageable.pageNumber, page.previousPageable.pageSize, order.property, order.direction) }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            {% for index in 0..(page.totalPages-1) %}
+                <li class="{{ index == page.number? 'active' : '' }}"><a href="{{- pageUrl(index, page.size, order.property, order.direction) -}}">{{index + 1}}</a></li>
+            {% endfor %}
+
+            <li class="{{ page.hasNext? '' : 'disabled' }}">
+                <a href="{{- pageUrl(page.nextPageable.pageNumber, page.nextPageable.pageSize, order.property, order.direction) -}}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endif %}
 
 {% endblock %}
 
-{% macro pageUrl(pageNumber, pageSize) %}
-    ?page={{pageNumber}}&size={{pageSize}}
+{% macro pageUrl(pageNumber, pageSize, sort, direction) %}
+    ?page={{pageNumber}}&size={{pageSize}}{{ sort == null? '' : '&sort=' + sort }}{{ direction == null? '' : ',' + direction }}
+{% endmacro %}
+
+{% macro header(page, text, sortField) %}
+    {% set order = page.sort.getOrderFor(sortField) %}
+
+    {% if order is not null %}
+        {% if order.direction == 'ASC' %}
+            {% set oppositeDirection = 'DESC' %}
+            {% set icon = 'glyphicon-chevron-up' %}
+        {% else %}
+            {% set oppositeDirection = 'ASC' %}
+            {% set icon = 'glyphicon-chevron-down' %}
+        {% endif %}
+
+        <td>
+            <a href="{{pageUrl(0, page.size, sortField, oppositeDirection)}}">{{text}}
+                <span class="glyphicon {{icon}}" aria-hidden="true"></span>
+            </a>
+        </td>
+    {% else %}
+        <td><a href="{{pageUrl(0, page.size, sortField)}}">{{text}}</a></td>
+    {% endif %}
 {% endmacro %}

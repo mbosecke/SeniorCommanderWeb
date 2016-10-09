@@ -2,11 +2,11 @@
 
 {% block 'table' %}
     <tr>
-        <th>Name</th>
-        <th>Points</th>
-        <th>Access Level</th>
-        <th>Member Since</th>
-        <th>Last Chatted</th>
+        {{ header(page, 'Name', 'name') }}
+        {{ header(page, 'Points', 'points') }}
+        {{ header(page, 'Access Level', 'accessLevel') }}
+        {{ header(page, 'Member Since', 'firstSeen') }}
+        {{ header(page, 'Last Chatted', 'lastChatted') }}
     </tr>
     {% for user in page %}
         <tr>

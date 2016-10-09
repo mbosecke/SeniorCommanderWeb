@@ -53,7 +53,7 @@ public class CommunityController {
 
     @RequestMapping("/community/{communityName}/quotes")
     public ModelAndView quotes(@PathVariable String communityName,
-                               @PageableDefault(page = 0, size = 50, direction = Sort.Direction.DESC, sort = {"createdDate"}) Pageable pageable) {
+                               @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"createdDate"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("quotes");
         addCommonMavObjects(mav, communityName, "quotes");
@@ -64,7 +64,7 @@ public class CommunityController {
 
     @RequestMapping("/community/{communityName}/commands")
     public ModelAndView commands(@PathVariable String communityName,
-                                 @PageableDefault(page = 0, size = 50, direction = Sort.Direction.ASC, sort = {"trigger"}) Pageable pageable) {
+                                 @PageableDefault(page = 0, size = 15, direction = Sort.Direction.ASC, sort = {"trigger"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("commands");
         addCommonMavObjects(mav, communityName, "commands");
@@ -73,12 +73,12 @@ public class CommunityController {
         return mav;
     }
 
-    @RequestMapping("/community/{communityName}/users")
-    public ModelAndView users(@PathVariable String communityName,
-                              @PageableDefault(page = 0, size = 50, direction = Sort.Direction.ASC, sort = {"name"}) Pageable pageable) {
+    @RequestMapping("/community/{communityName}/leaderboard")
+    public ModelAndView leaderboard(@PathVariable String communityName,
+                              @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"points"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("users");
-        addCommonMavObjects(mav, communityName, "users");
+        mav.setViewName("leaderboard");
+        addCommonMavObjects(mav, communityName, "leaderboard");
 
         mav.addObject("page", communityUserService.findUsers(communityName, pageable));
         return mav;
