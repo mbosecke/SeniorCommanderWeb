@@ -1,15 +1,40 @@
 {% extends 'grid' %}
 
 {% block 'table' %}
+
 <tr>
-    <th>ID</th>
-    <th>Channel</th>
-    <th>Message</th>
-    <th>Implementation</th>
-    <th>Interval</th>
-    <th>Chat Lines</th>
-    <th>Enabled</th>
-    <th>Last Executed</th>
+    {{ header(page, '#', 'communitySequence') }}
+    {{ header(page, 'Channel', 'channelModel') }}
+    {{ header(page, 'Message', 'message') }}
+    {{ header(page, 'Description', 'description') }}
+    {{ header(page, 'Interval (minutes)', 'interval') }}
+    {{ header(page, 'Chat Lines', 'chatLines') }}
+    {{ header(page, 'Enabled', 'enabled') }}
+    {{ header(page, 'Last Executed', 'lastExecuted') }}
 </tr>
+{% for timer in page %}
+    <tr>
+        <th>{{timer.communitySequence}}</th>
+        <td>{{timer.channelModel.type}}</td>
+        <td>{{timer.message}}</td>
+        <td></td>
+        <td>
+            {% if timer.interval < 60 %}
+                &lt; 1 min
+            {% else %}
+                {{timer.interval / 60}}
+            {% endif %}
+        </td>
+        <td>{{timer.chatLines}}</td>
+        <td>
+            {% if timer.enabled %}
+            <span class="label label-success">enabled</span>
+            {% else %}
+            <span class="label label-danger">disabled</span>
+            {% endif %}
+        </td>
+        <td>{{timer.lastExecuted | date('yyyy-MM-dd h:m:s a')}}</td>
+    </tr>
+{% endfor %}
 
 {% endblock %}

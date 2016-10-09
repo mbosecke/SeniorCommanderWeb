@@ -20,14 +20,16 @@
     <li role="presentation" class="{{activeTab == 'commands'? 'active' : ''}}"><a
             href="/community/{{communityName}}/commands">Commands</a></li>
 
-    <li role="presentation" class="{{activeTab == 'timers'? 'active' : ''}}"><a
-            href="/community/{{communityName}}/timers">Timers</a></li>
+    {% if hasOwnerAccess %}
+        <li role="presentation" class="{{activeTab == 'timers'? 'active' : ''}}"><a
+                href="/community/{{communityName}}/timers">Timers</a></li>
 
-    <li role="presentation" class="{{activeTab == 'log'? 'active' : ''}}"><a
-            href="/community/{{communityName}}/log">Chat Log</a></li>
+        <li role="presentation" class="{{activeTab == 'log'? 'active' : ''}}"><a
+                href="/community/{{communityName}}/log">Chat Log</a></li>
 
-    <li role="presentation" class="{{activeTab == 'admin'? 'active' : ''}}"><a
-            href="/community/{{communityName}}/admin">Admin</a></li>
+        <li role="presentation" class="{{activeTab == 'admin'? 'active' : ''}}"><a
+                href="/community/{{communityName}}/admin">Admin</a></li>
+    {% endif %}
 </ul>
 
 

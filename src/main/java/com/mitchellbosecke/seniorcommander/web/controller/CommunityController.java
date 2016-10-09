@@ -1,6 +1,8 @@
 package com.mitchellbosecke.seniorcommander.web.controller;
 
 import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
+import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
+import com.mitchellbosecke.seniorcommander.web.security.CommunityPermissions;
 import com.mitchellbosecke.seniorcommander.web.service.CommandService;
 import com.mitchellbosecke.seniorcommander.web.service.CommunityUserService;
 import com.mitchellbosecke.seniorcommander.web.service.QuoteService;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +39,9 @@ public class CommunityController {
 
     @Autowired
     private TimerService timerService;
+
+    @Autowired
+    private CommunityPermissions communityPermissions;
 
     @RequestMapping("/community")
     public View community() {
@@ -110,6 +116,9 @@ public class CommunityController {
 
     @RequestMapping("/community/{communityName}/admin")
     public ModelAndView admin(@PathVariable String communityName) {
+        if(!communityPermissions.hasAccess(communityName, AccessLevel.OWNER)){
+            throw new AccessDeniedException("Must be a channel owner");
+        }
         ModelAndView mav = new ModelAndView();
         mav.setViewName("admin");
         addCommonMavObjects(mav, communityName, "admin");
@@ -120,6 +129,7 @@ public class CommunityController {
         mav.addObject("username", SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         mav.addObject("communityUserModels", communityUserService.findMemberships());
         mav.addObject("communityUserModel", communityUserService.findCommunityUserModel(communityName));
+        mav.addObject("hasOwnerAccess", communityPermissions.hasAccess(communityName, AccessLevel.OWNER));
         mav.addObject("activeTab", activeTab);
     }
 }

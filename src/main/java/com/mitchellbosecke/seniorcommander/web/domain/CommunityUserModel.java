@@ -1,6 +1,6 @@
 package com.mitchellbosecke.seniorcommander.web.domain;
 
-import com.mitchellbosecke.seniorcommander.web.AccessLevel;
+import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
 
 import javax.persistence.*;
 import java.util.Date;

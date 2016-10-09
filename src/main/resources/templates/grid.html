@@ -47,10 +47,10 @@
     {% if order is not null %}
         {% if order.direction == 'ASC' %}
             {% set oppositeDirection = 'DESC' %}
-            {% set icon = 'glyphicon-chevron-up' %}
+            {% set icon = 'glyphicon-triangle-top' %}
         {% else %}
             {% set oppositeDirection = 'ASC' %}
-            {% set icon = 'glyphicon-chevron-down' %}
+            {% set icon = 'glyphicon-triangle-bottom' %}
         {% endif %}
 
         <td>

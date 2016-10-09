@@ -1,4 +1,4 @@
-package com.mitchellbosecke.seniorcommander.web;
+package com.mitchellbosecke.seniorcommander.web.security;
 
 /**
  * Created by mitch_000 on 2016-07-18.
