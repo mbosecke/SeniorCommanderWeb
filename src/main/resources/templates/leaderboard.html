@@ -4,7 +4,6 @@
     <tr>
         {{ header(page, 'Name', 'name') }}
         {{ header(page, 'Points', 'points') }}
-        {{ header(page, 'Access Level', 'accessLevel') }}
         {{ header(page, 'Member Since', 'firstSeen') }}
         {{ header(page, 'Last Chatted', 'lastChatted') }}
     </tr>
@@ -12,7 +11,6 @@
         <tr>
             <th>{{user.name}}</th>
             <td>{{user.points}}</td>
-            <td>{{user.accessLevel}}</td>
             <td>{{user.firstSeen | date('yyyy-MM-dd')}}</td>
             <td>{{user.lastChatted | date('yyyy-MM-dd')}}</td>
         </tr>

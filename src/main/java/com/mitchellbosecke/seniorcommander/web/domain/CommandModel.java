@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by mitch_000 on 2016-07-12.
  */
 @Entity
-@Table(name = "command", schema="core")
+@Table(name = "command", schema = "core")
 public class CommandModel {
 
     @Id
@@ -22,6 +22,9 @@ public class CommandModel {
 
     @Column
     private String trigger;
+
+    @Column
+    private String alias;
 
     @Column
     private String message;
@@ -101,5 +104,13 @@ public class CommandModel {
 
     public void setAccessLevel(AccessLevel accessLevel) {
         this.accessLevel = accessLevel;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 }
