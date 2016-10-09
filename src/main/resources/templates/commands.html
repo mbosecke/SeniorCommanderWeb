@@ -4,6 +4,7 @@
     <tr>
         {{ header(page, 'Trigger', 'trigger') }}
         {{ header(page, 'Alias For', 'alias') }}
+        {{ header(page, 'Description', 'description') }}
         {{ header(page, 'Message', 'message') }}
         {{ header(page, 'Cooldown (minutes)', 'cooldown') }}
         {{ header(page, 'Enabled', 'enabled') }}
@@ -13,6 +14,7 @@
         <tr>
             <th>{{command.trigger}}</th>
             <td>{{command.alias}}</td>
+            <td></td>
             <td>
                 {% if command.alias is null and command.implementation is null %}
                     {{command.message}}

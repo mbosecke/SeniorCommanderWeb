@@ -4,6 +4,7 @@ import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
 import com.mitchellbosecke.seniorcommander.web.service.CommandService;
 import com.mitchellbosecke.seniorcommander.web.service.CommunityUserService;
 import com.mitchellbosecke.seniorcommander.web.service.QuoteService;
+import com.mitchellbosecke.seniorcommander.web.service.TimerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -32,6 +33,9 @@ public class CommunityController {
 
     @Autowired
     private CommandService commandService;
+
+    @Autowired
+    private TimerService timerService;
 
     @RequestMapping("/community")
     public View community() {
@@ -75,7 +79,7 @@ public class CommunityController {
 
     @RequestMapping("/community/{communityName}/leaderboard")
     public ModelAndView leaderboard(@PathVariable String communityName,
-                              @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"points"}) Pageable pageable) {
+                                    @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"points"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("leaderboard");
         addCommonMavObjects(mav, communityName, "leaderboard");
@@ -85,11 +89,13 @@ public class CommunityController {
     }
 
     @RequestMapping("/community/{communityName}/timers")
-    public ModelAndView timers(@PathVariable String communityName) {
+    public ModelAndView timers(@PathVariable String communityName,
+                               @PageableDefault(page = 0, size = 15, direction = Sort.Direction.ASC, sort = {"communitySequence"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("timers");
 
         addCommonMavObjects(mav, communityName, "timers");
+        mav.addObject("page", timerService.findTimers(communityName, pageable));
         return mav;
     }
 

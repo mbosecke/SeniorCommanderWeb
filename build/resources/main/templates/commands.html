@@ -3,18 +3,40 @@
 {% block 'table' %}
     <tr>
         {{ header(page, 'Trigger', 'trigger') }}
+        {{ header(page, 'Alias For', 'alias') }}
+        {{ header(page, 'Description', 'description') }}
         {{ header(page, 'Message', 'message') }}
-        {{ header(page, 'Cooldown', 'cooldown') }}
+        {{ header(page, 'Cooldown (minutes)', 'cooldown') }}
         {{ header(page, 'Enabled', 'enabled') }}
         {{ header(page, 'Access Level', 'accessLevel') }}
     </tr>
     {% for command in page %}
         <tr>
             <th>{{command.trigger}}</th>
-            <td>{{command.message}}</td>
-            <td>{{command.cooldown}}</td>
-            <td>{{command.enabled}}</td>
-            <td>{{command.accessLevel}}</td>
+            <td>{{command.alias}}</td>
+            <td></td>
+            <td>
+                {% if command.alias is null and command.implementation is null %}
+                    {{command.message}}
+                {% else %}
+                    n/a
+                {% endif %}
+            </td>
+            <td>{{command.cooldown / 60}}</td>
+            <td>
+                {% if command.enabled %}
+                    <span class="label label-success">enabled</span>
+                {% else %}
+                    <span class="label label-danger">disabled</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if command.alias is null %}
+                    {{command.accessLevel}}
+                {% else %}
+                    n/a
+                {% endif %}
+            </td>
         </tr>
     {% endfor %}
 {% endblock %}
