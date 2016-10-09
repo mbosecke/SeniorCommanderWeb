@@ -9,5 +9,5 @@ import org.springframework.data.domain.Pageable;
  */
 public interface CommandService {
 
-    Page<CommandModel> findCommands(String communityName, Pageable pageable);
+      Page<CommandModel> findCommands(String communityName, Pageable pageable);
 }
