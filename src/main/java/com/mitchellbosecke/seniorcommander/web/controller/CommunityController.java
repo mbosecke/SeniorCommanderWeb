@@ -3,10 +3,7 @@ package com.mitchellbosecke.seniorcommander.web.controller;
 import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
 import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
 import com.mitchellbosecke.seniorcommander.web.security.CommunityPermissions;
-import com.mitchellbosecke.seniorcommander.web.service.CommandService;
-import com.mitchellbosecke.seniorcommander.web.service.CommunityUserService;
-import com.mitchellbosecke.seniorcommander.web.service.QuoteService;
-import com.mitchellbosecke.seniorcommander.web.service.TimerService;
+import com.mitchellbosecke.seniorcommander.web.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -42,6 +39,9 @@ public class CommunityController {
 
     @Autowired
     private CommunityPermissions communityPermissions;
+
+    @Autowired
+    private ChatLogService chatLogService;
 
     @RequestMapping("/community")
     public View community() {
@@ -106,17 +106,19 @@ public class CommunityController {
     }
 
     @RequestMapping("/community/{communityName}/log")
-    public ModelAndView log(@PathVariable String communityName) {
+    public ModelAndView log(@PathVariable String communityName,
+                            @PageableDefault(page = 0, size = 50, direction = Sort.Direction.DESC, sort = {"date"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("log");
 
         addCommonMavObjects(mav, communityName, "log");
+        mav.addObject("page", chatLogService.findLogs(communityName, pageable));
         return mav;
     }
 
     @RequestMapping("/community/{communityName}/admin")
     public ModelAndView admin(@PathVariable String communityName) {
-        if(!communityPermissions.hasAccess(communityName, AccessLevel.OWNER)){
+        if (!communityPermissions.hasAccess(communityName, AccessLevel.OWNER)) {
             throw new AccessDeniedException("Must be a channel owner");
         }
         ModelAndView mav = new ModelAndView();
