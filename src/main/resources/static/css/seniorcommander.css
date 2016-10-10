@@ -9,7 +9,7 @@ body { color: #73879C; }
 .page-header {margin-top:20px;}
 
 /* Sidebar */
-h1#brand{background:#172D44; color:#eee; margin-top:0; padding:14px 0; font-size:24px; text-align:center; }
+h1#brand{background:#172D44; color:#c3c3c3; margin-top:0; padding:14px 0; font-size:18px; text-align:center; font-family:'Roboto', sans-serif;}
 #sidebar-wrapper .nav-pills>li>a { color: #dedede; border-radius:0;}
 #sidebar-wrapper .nav-pills>li.active>a, #sidebar-wrapper .nav-pills>li.active>a:focus, #sidebar-wrapper .nav-pills>li.active>a:hover { background-color:#34485c; border-right:6px solid #1abb9c;}
 #sidebar-wrapper .nav>li>a:focus, #sidebar-wrapper .nav>li>a:hover {background-color:#34485c;}
