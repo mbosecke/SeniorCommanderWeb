@@ -7,7 +7,7 @@ import java.util.Set;
  * Created by mitch_000 on 2016-07-10.
  */
 @Entity
-@Table(name = "channel", schema="core")
+@Table(name = "channel", schema="bot")
 public class ChannelModel {
 
     @Id

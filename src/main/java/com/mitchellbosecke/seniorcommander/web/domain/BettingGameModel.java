@@ -10,7 +10,7 @@ import java.util.Set;
  * Created by mitch_000 on 2016-07-12.
  */
 @Entity
-@Table(name = "betting_game", schema = "core")
+@Table(name = "betting_game", schema = "bot")
 public class BettingGameModel {
 
     @Id

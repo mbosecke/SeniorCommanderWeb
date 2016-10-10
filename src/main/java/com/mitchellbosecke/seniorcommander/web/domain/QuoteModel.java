@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by mitch_000 on 2016-07-17.
  */
 @Entity
-@Table(name = "quote", schema="core")
+@Table(name = "quote", schema="bot")
 public class QuoteModel {
 
     @Id

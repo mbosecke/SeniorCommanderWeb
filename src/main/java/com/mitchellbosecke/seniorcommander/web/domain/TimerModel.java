@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by mitch_000 on 2016-07-31.
  */
 @Entity
-@Table(name = "timer", schema = "core")
+@Table(name = "timer", schema = "bot")
 public class TimerModel {
 
     @Id
@@ -40,6 +40,17 @@ public class TimerModel {
     @Column(name = "last_executed")
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date lastExecuted;
+
+    @Column
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public long getId() {
         return id;

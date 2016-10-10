@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by mitch_000 on 2016-07-10.
  */
 @Entity
-@Table(name = "community_user", schema="core")
+@Table(name = "community_user", schema="bot")
 public class CommunityUserModel {
 
     @Id

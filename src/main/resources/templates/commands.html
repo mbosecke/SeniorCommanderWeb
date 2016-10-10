@@ -14,7 +14,7 @@
         <tr>
             <th>{{command.trigger}}</th>
             <td>{{command.alias}}</td>
-            <td></td>
+            <td>{{command.description}}</td>
             <td>
                 {% if command.alias is null and command.implementation is null %}
                     {{command.message}}

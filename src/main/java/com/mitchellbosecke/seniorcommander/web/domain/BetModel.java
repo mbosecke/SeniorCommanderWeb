@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by mitch_000 on 2016-07-12.
  */
 @Entity
-@Table(name = "bet", schema="core")
+@Table(name = "bet", schema="bot")
 public class BetModel {
 
     @Id

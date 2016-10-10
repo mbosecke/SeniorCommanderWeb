@@ -7,7 +7,7 @@ import java.util.Set;
  * Created by mitch_000 on 2016-07-09.
  */
 @Entity
-@Table(name = "community", schema = "core")
+@Table(name = "community", schema = "bot")
 public class CommunityModel {
 
     @Id

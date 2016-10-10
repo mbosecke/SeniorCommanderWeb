@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by mitch_000 on 2016-07-12.
  */
 @Entity
-@Table(name = "command_log", schema="core")
+@Table(name = "command_log", schema="bot")
 public class CommandLogModel {
 
     @Id

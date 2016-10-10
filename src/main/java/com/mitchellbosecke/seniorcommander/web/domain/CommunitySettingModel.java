@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by mitch_000 on 2016-07-10.
  */
 @Entity
-@Table(name = "community_setting", schema="core")
+@Table(name = "community_setting", schema="bot")
 public class CommunitySettingModel {
 
     @Id
