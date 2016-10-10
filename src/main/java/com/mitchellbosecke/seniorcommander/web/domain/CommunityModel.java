@@ -7,7 +7,7 @@ import java.util.Set;
  * Created by mitch_000 on 2016-07-09.
  */
 @Entity
-@Table(name = "community", schema="core")
+@Table(name = "community", schema = "core")
 public class CommunityModel {
 
     @Id
@@ -18,11 +18,14 @@ public class CommunityModel {
     @Column
     private String name;
 
-    @OneToMany(mappedBy="communityModel")
+    @OneToMany(mappedBy = "communityModel")
     private Set<ChannelModel> channelModels;
 
     @OneToOne(mappedBy = "communityModel")
     private BettingGameModel bettingGameModel;
+
+    @OneToMany(mappedBy = "communityModel")
+    private Set<CommunitySettingModel> settings;
 
     public long getId() {
         return id;
@@ -54,5 +57,24 @@ public class CommunityModel {
 
     public void setBettingGameModel(BettingGameModel bettingGameModel) {
         this.bettingGameModel = bettingGameModel;
+    }
+
+    public Set<CommunitySettingModel> getSettings() {
+        return settings;
+    }
+
+    public void setSettings(Set<CommunitySettingModel> settings) {
+        this.settings = settings;
+    }
+
+    @Transient
+    public String getSetting(String key) {
+        String result = null;
+        for (CommunitySettingModel setting : settings) {
+            if (key.equalsIgnoreCase(setting.getKey())) {
+                result = setting.getValue();
+            }
+        }
+        return result;
     }
 }

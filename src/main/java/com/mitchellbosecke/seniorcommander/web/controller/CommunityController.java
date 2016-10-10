@@ -128,10 +128,12 @@ public class CommunityController {
     }
 
     private void addCommonMavObjects(ModelAndView mav, String communityName, String activeTab) {
+        CommunityUserModel communityUserModel = communityUserService.findCommunityUserModel(communityName);
         mav.addObject("username", SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         mav.addObject("communityUserModels", communityUserService.findMemberships());
-        mav.addObject("communityUserModel", communityUserService.findCommunityUserModel(communityName));
+        mav.addObject("communityUserModel", communityUserModel);
         mav.addObject("hasOwnerAccess", communityPermissions.hasAccess(communityName, AccessLevel.OWNER));
+        mav.addObject("pointsPlural", communityUserModel.getCommunityModel().getSetting("points.plural"));
         mav.addObject("activeTab", activeTab);
     }
 }
