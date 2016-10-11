@@ -1,6 +1,5 @@
 package com.mitchellbosecke.seniorcommander.web.controller;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,8 +14,7 @@ public class LoginController {
     public ModelAndView login() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("login");
-        mav.addObject("username", SecurityContextHolder.getContext()
-                .getAuthentication().getPrincipal().toString());
+        //mav.addObject("username", SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         return mav;
     }
 }
