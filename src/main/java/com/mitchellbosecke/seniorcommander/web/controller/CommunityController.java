@@ -38,6 +38,9 @@ public class CommunityController {
     private TimerService timerService;
 
     @Autowired
+    private HighlightService highlightService;
+
+    @Autowired
     private CommunityPermissions communityPermissions;
 
     @Autowired
@@ -58,6 +61,7 @@ public class CommunityController {
 
         mav.addObject("randomQuote", quoteService.findRandomQuote(communityName));
         mav.addObject("topUsers", communityUserService.findTopUsers(communityName));
+        mav.addObject("highlights", highlightService.findHighlights(communityName));
         return mav;
     }
 

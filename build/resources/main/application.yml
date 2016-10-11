@@ -23,4 +23,4 @@ pebble:
 
 logging:
   level:
-    org.springframework.web: DEBUG
+    org.hibernate: debug

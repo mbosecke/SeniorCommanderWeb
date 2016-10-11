@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by mitch_000 on 2016-07-10.
  */
 @Entity
-@Table(name = "community_user", schema="bot")
+@Table(name = "community_user", schema = "bot")
 public class CommunityUserModel {
 
     @Id
@@ -38,6 +38,10 @@ public class CommunityUserModel {
     @Column(name = "last_chatted")
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date lastChatted;
+
+    @Column(name = "first_followed")
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date firstFollowed;
 
     public AccessLevel getAccessLevel() {
         return accessLevel;
@@ -93,5 +97,13 @@ public class CommunityUserModel {
 
     public void setLastChatted(Date lastChatted) {
         this.lastChatted = lastChatted;
+    }
+
+    public Date getFirstFollowed() {
+        return firstFollowed;
+    }
+
+    public void setFirstFollowed(Date firstFollowed) {
+        this.firstFollowed = firstFollowed;
     }
 }

@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -40,4 +40,16 @@ public interface CommunityUserModelRepository extends JpaRepository<CommunityUse
             "WHERE cu.communityModel.name = :communityName")
     //@formatter:on
     Page<CommunityUserModel> findAllByComunityName(@Param("communityName") String communityName, Pageable pageable);
+
+    //@formatter:off
+    @Query("SELECT u " +
+            "FROM ChatLogModel l, CommunityUserModel u " +
+            "WHERE l.communityUserModel = u " +
+            "AND l.date > :since " +
+            "AND l.communityUserModel.communityModel.name = :communityName " +
+            "GROUP BY u " +
+            "ORDER BY count(l) DESC ")
+    //@formatter:on
+    List<CommunityUserModel> findChattiest(@Param("communityName") String communityName, @Param("since") Date since, Pageable pageable);
+
 }
