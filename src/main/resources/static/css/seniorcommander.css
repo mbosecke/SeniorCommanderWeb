@@ -2,8 +2,11 @@ body { color: #73879C; }
 h1#brand{color:#c3c3c3; margin-top:0; padding:14px 0; font-size:18px; text-align:center; font-family:'Roboto', sans-serif;}
 
 /* Login */
-.container.login {margin-top:20%;}
-.container.login .well {max-width:500px; margin:0 auto;}
+.container.login {margin-top:10%;}
+.container.login .well, .container.login > p.legal {max-width:500px; margin:0 auto;}
+.container.login > p.legal {font-size:0.9em;}
+.container.login > p.legal a {color:#86accc;}
+.container.login > p.legal a:hover {color:#6491b7;}
 .button-twitch{ background:#6441A5; border:1px solid #6D51A0; color:#fff; padding:10px 20px; border-radius:6px; display:block; margin-top:40px; text-align:center;}
 .button-twitch:hover {color:#fff; text-decoration:none;}
 
@@ -21,6 +24,9 @@ h1#brand{color:#c3c3c3; margin-top:0; padding:14px 0; font-size:18px; text-align
 #sidebar-wrapper .nav-pills>li.active>a, #sidebar-wrapper .nav-pills>li.active>a:focus, #sidebar-wrapper .nav-pills>li.active>a:hover { background-color:#34485c; border-right:6px solid #1abb9c;}
 #sidebar-wrapper .nav>li>a:focus, #sidebar-wrapper .nav>li>a:hover {background-color:#34485c;}
 .sidebar-header { padding: 15px 5px; text-transform:uppercase; font-size:12px; }
+.sidebar-footer { font-size:0.9em; position:absolute; bottom:0; margin:10px;}
+.sidebar-footer a, .sidebar-footer a:hover {color:#6392bd;}
+.sidebar-footer a:hover {color:#4d7ba5;}
 
 /* Panel styling */
 .panel-success {border-color: #74a59b;}
