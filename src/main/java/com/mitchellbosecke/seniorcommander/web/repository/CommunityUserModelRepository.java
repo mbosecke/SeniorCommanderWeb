@@ -31,13 +31,15 @@ public interface CommunityUserModelRepository extends JpaRepository<CommunityUse
     @Query("SELECT cu " +
             "FROM CommunityUserModel cu " +
             "WHERE cu.communityModel.name = :communityName " +
+            "AND cu.bot = false " +
             "ORDER BY cu.points DESC")
     //@formatter:on
     List<CommunityUserModel> findByCommunityNameOrderByPoints(@Param("communityName") String communityName, Pageable pageable);
 
     //@formatter:off
     @Query("SELECT cu FROM CommunityUserModel cu " +
-            "WHERE cu.communityModel.name = :communityName")
+            "WHERE cu.communityModel.name = :communityName " +
+            "AND cu.bot = false")
     //@formatter:on
     Page<CommunityUserModel> findAllByComunityName(@Param("communityName") String communityName, Pageable pageable);
 
@@ -47,6 +49,7 @@ public interface CommunityUserModelRepository extends JpaRepository<CommunityUse
             "WHERE l.communityUserModel = u " +
             "AND l.date > :since " +
             "AND l.communityUserModel.communityModel.name = :communityName " +
+            "AND u.bot = false " +
             "GROUP BY u " +
             "ORDER BY count(l) DESC ")
     //@formatter:on

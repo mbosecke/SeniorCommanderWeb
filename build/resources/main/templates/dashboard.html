@@ -28,20 +28,12 @@
             </div>
             <div class="panel-body">
 
+                {% for highlight in highlights %}
                 <div class="highlight">
-                    <div class="highlight-name">KingCauti</div>
-                    <div class="highlight-description">Top Donor</div>
+                    <div class="highlight-name">{{highlight.user.name}}</div>
+                    <div class="highlight-description">{{highlight.description}}</div>
                 </div>
-
-                <div class="highlight">
-                    <div class="highlight-name">mbosecke</div>
-                    <div class="highlight-description">Newest Follower</div>
-                </div>
-
-                <div class="highlight">
-                    <div class="highlight-name">Mike51200</div>
-                    <div class="highlight-description">Chattiest</div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

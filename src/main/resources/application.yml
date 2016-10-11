@@ -21,6 +21,3 @@ security:
 pebble:
   suffix: .html
 
-logging:
-  level:
-    org.hibernate: debug

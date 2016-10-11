@@ -43,6 +43,9 @@ public class CommunityUserModel {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date firstFollowed;
 
+    @Column
+    private boolean bot;
+
     public AccessLevel getAccessLevel() {
         return accessLevel;
     }
@@ -105,5 +108,13 @@ public class CommunityUserModel {
 
     public void setFirstFollowed(Date firstFollowed) {
         this.firstFollowed = firstFollowed;
+    }
+
+    public boolean isBot() {
+        return bot;
+    }
+
+    public void setBot(boolean bot) {
+        this.bot = bot;
     }
 }
