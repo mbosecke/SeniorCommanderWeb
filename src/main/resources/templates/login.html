@@ -1,7 +1,10 @@
 {% extends 'base' %}
 
 {% block 'body' %}
-    <p>
-        Login using twitch: <a href='/community'>Login</a>. Your username: {{username}}
-    </p>
+<div class="container login">
+    <div class="well well-lg">
+        <h1 id="brand">SeniorCommander</h1>
+        <a class="button button-twitch" href='/community'>Login with Twitch</a>
+    </div>
+</div>
 {% endblock %}

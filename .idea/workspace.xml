@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="796bee4f-742c-44eb-8504-e316c4cfacfc" name="Default" comment="Changed schema name&#10;                                Changed logo&#10;                                Added command/timer descriptions">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/SeniorCommanderWebApplication.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/SeniorCommanderWebApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/controller/LoginController.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/controller/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/BetModel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/BetModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/ChannelModel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/ChannelModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/ChannelSettingModel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/ChannelSettingModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/ChatLogModel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/ChatLogModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/CommandLogModel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/CommandLogModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/CommandModel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/CommandModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/CommunityUserModel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/CommunityUserModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/QuoteModel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/QuoteModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/TimerModel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/mitchellbosecke/seniorcommander/web/domain/TimerModel.class" />
+    <list default="true" id="796bee4f-742c-44eb-8504-e316c4cfacfc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/application.yml" afterPath="$PROJECT_DIR$/build/resources/main/application.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/templates/commands.html" afterPath="$PROJECT_DIR$/build/resources/main/templates/commands.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/templates/timers.html" afterPath="$PROJECT_DIR$/build/resources/main/templates/timers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/SeniorCommanderWebApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/SeniorCommanderWebApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/controller/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/css/seniorcommander.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/seniorcommander.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/two-columns.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/two-columns.html" />
     </list>
     <ignored path="SeniorCommanderWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,7 +46,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SeniorCommanderWebApplication.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SeniorCommanderWebApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/SeniorCommanderWebApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
@@ -67,6 +54,56 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="54" column="67" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="community.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/community.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="two-columns.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/two-columns.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seniorcommander.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/seniorcommander.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -462,8 +499,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/repository/CommunityUserModelRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/service/CommunityUserService.java" />
         <option value="$MAVEN_REPOSITORY$/com/mitchellbosecke/pebble/2.2.4-SNAPSHOT/pebble-2.2.4-SNAPSHOT-sources.jar!/com/mitchellbosecke/pebble/node/expression/SubtractExpression.java" />
@@ -494,7 +529,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/leaderboard.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/base.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/css/seniorcommander.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/domain/BettingGameModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/domain/BetModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/domain/BettingOptionModel.java" />
@@ -513,6 +547,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/SeniorCommanderWebApplication.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/two-columns.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/seniorcommander.css" />
       </list>
     </option>
   </component>
@@ -614,6 +651,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeniorCommanderWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeniorCommanderWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1212,7 +1275,7 @@
       <workItem from="1474341183319" duration="4217000" />
       <workItem from="1475806290663" duration="4760000" />
       <workItem from="1475946796795" duration="13814000" />
-      <workItem from="1475970230555" duration="30664000" />
+      <workItem from="1475970230555" duration="32327000" />
     </task>
     <task id="LOCAL-00001" summary="committing stupid .idea files">
       <created>1475811573326</created>
@@ -1298,11 +1361,18 @@
       <option name="project" value="LOCAL" />
       <updated>1476142917583</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Changed schema name&#10;Changed logo&#10;Added command/timer descriptions">
+      <created>1476146426996</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1476146426996</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100913000" />
+    <option name="totallyTimeSpent" value="102576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -1404,24 +1474,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/repository/CommandModelRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/security/SecurityUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/repository/CommunityUserModelRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1446,14 +1498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/community.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mitchellbosecke/seniorcommander/web/service/TimerService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1469,8 +1513,8 @@
         <state relative-caret-position="271">
           <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
           <folding>
-            <element signature="e#696#703#0" expanded="true" />
-            <element signature="e#1259#1266#0" expanded="true" />
+            <element signature="e#696#703#0" expanded="false" />
+            <element signature="e#1259#1266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1523,34 +1567,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="54" column="67" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/log.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="85" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/seniorcommander.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -1775,8 +1795,8 @@
         <state relative-caret-position="340">
           <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
           <folding>
-            <element signature="e#3417#3418#0" expanded="true" />
-            <element signature="e#3455#3456#0" expanded="true" />
+            <element signature="e#3417#3418#0" expanded="false" />
+            <element signature="e#3455#3456#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1828,6 +1848,54 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="8" column="85" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="67" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/community.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/two-columns.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/seniorcommander.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
