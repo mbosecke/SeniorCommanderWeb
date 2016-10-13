@@ -11,7 +11,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @SpringBootApplication
 @EnableOAuth2Sso
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SeniorCommanderWebApplication extends WebSecurityConfigurerAdapter{
+public class SeniorCommanderWebApplication extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -20,7 +20,7 @@ public class SeniorCommanderWebApplication extends WebSecurityConfigurerAdapter{
         http.antMatcher("/**").authorizeRequests()
                 .antMatchers("/", "/login**", "/css/**", "/privacy", "/terms-of-service").permitAll()
                 .anyRequest().authenticated()
-                .and()
+                .and().csrf().disable()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
         //@formatter:on
     }

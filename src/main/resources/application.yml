@@ -21,3 +21,4 @@ security:
 pebble:
   suffix: .html
 
+logging.level.org.springframework.web: DEBUG

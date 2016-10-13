@@ -24,7 +24,7 @@ public class CommunityModel {
     @OneToOne(mappedBy = "communityModel")
     private BettingGameModel bettingGameModel;
 
-    @OneToMany(mappedBy = "communityModel")
+    @OneToMany(mappedBy = "communityModel", cascade = CascadeType.ALL)
     private Set<CommunitySettingModel> settings;
 
     public long getId() {
