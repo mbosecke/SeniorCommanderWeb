@@ -6,47 +6,134 @@
     <div class="row">
         <div class="col-md-9">
 
+            <h2>Dashboard</h2>
+            <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/dashboard" method="POST">
+                {{ successMessage(twitchFormSuccessMessage) }}
 
+                <fieldset disabled>
+
+                    <div class="form-group">
+                        {{ label('customDomain', 'Custom domain') }}
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="customDomain" id="customDomain" placeholder="Coming Soon">
+                            <span class="help-block">Make sure to setup an A record on a root domain or a CNAME record on a subdomain.</span>
+                        </div>
+                    </div>
+
+                    {{ submit() }}
+                </fieldset>
+            </form>
+
+            <h2>Twitch</h2>
+            <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/twitch" method="POST">
+                {{ successMessage(twitchFormSuccessMessage) }}
+
+                <fieldset disabled>
+                    <div class="form-group">
+                        {{ label('pointsOnline', 'Channel') }}
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="channel" id="channel" value="#senior_commander">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ label('botCustomUsername', 'Custom bot username') }}
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="botCustomUsername" id="botCustomUsername" placeholder="Coming Soon">
+                            <span class="help-block">Leave blank to use the default <code>SeniorCommander</code> username.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ label('botCustomPassword', 'Custom bot OAuth token') }}
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" name="botCustomPassword" id="botCustomPassword" placeholder="Coming Soon">
+                            <span class="help-block">Generate an OAuth token <a href="https://twitchapps.com/tmi/">here</a> <small><span class="glyphicon glyphicon-new-window"></span></small>.</span>
+                        </div>
+                    </div>
+
+                    {{ submit() }}
+                </fieldset>
+            </form>
+
+            <h2>Discord</h2>
+            <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/discord" method="POST">
+                {{ successMessage(discordFormSuccessMessage) }}
+
+                <fieldset disabled>
+                    <div class="form-group">
+                        {{ label('guild', 'Guild') }}
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="guild" id="guild" value="mbosecke">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ label('discordChannel', 'Channel') }}
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="discordChannel" id="discordChannel" value="test" placeholder="Coming Soon">
+                        </div>
+                    </div>
+
+                    {{ submit() }}
+                </fieldset>
+            </form>
+
+            <!-- POINTS -->
             <h2>Points</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/points" method="POST">
-
-                {% if pointsFormSuccessMessage is not null %}
-                <p class="bg-success">{{pointsFormSuccessMessage}}</p>
-                {% endif %}
+                {{ successMessage(pointsFormSuccessMessage) }}
 
                 <div class="form-group {{ hasFieldErrors('pointsForm', 'pointsOnline')? 'has-error' : ''}}">
-                    <label for="pointsOnline" class="col-sm-3 control-label">Points per minute while online</label>
+                    {{ label('pointsOnline', 'Points per minute while online') }}
                     <div class="col-sm-9">
                         <input type="number" class="form-control" name="pointsOnline" id="pointsOnline"
                                value="{{pointsOnline | default(10)}}">
                         {{ fieldErrors(getFieldErrors('pointsForm', 'pointsOnline')) }}
-                        <span class="help-block">Between 0 and 100</span>
+                        <span class="help-block">Between 0 and 100.</span>
                     </div>
                 </div>
 
                 <div class="form-group {{ hasFieldErrors('pointsForm', 'pointsPlural')? 'has-error' : ''}}">
-                    <label for="pointsPlural" class="col-sm-3 control-label">Name of points</label>
+                    {{ label('pointsPlural', 'Name of points') }}
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="pointsPlural" id="pointsPlural"
                                value="{{pointsPlural | default('points')}}">
                         {{ fieldErrors(getFieldErrors('pointsForm', 'pointsPlural')) }}
-                        <span class="help-block">This affects leaderboard and bot messages but not the <code>!points</code> command; use an alias for a custom command</span>
+                        <span class="help-block">This affects leaderboard and bot messages but not the <code>!points</code> command; use an alias for a custom command.</span>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-9">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </div>
+                {{ submit() }}
             </form>
-        </div>
+
+        </div> <!-- end col-md-9 -->
+
         <div class="col-md-3">
+            <!-- reserved for side navigation -->
         </div>
     </div>
 </div>
-
 {% endblock %}
+
+
+{% macro label(fieldName, label) %}
+<label for="{{fieldName}}" class="col-sm-3 control-label">{{label}}</label>
+{% endmacro %}
+
+{% macro successMessage(message) %}
+    {% if message is not null %}
+    <p class="bg-success">{{message}}</p>
+    {% endif %}
+{% endmacro %}
+
+{% macro submit() %}
+<div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</div>
+{% endmacro %}
 
 {% macro fieldErrors(errors) %}
     {% if errors is not null %}
