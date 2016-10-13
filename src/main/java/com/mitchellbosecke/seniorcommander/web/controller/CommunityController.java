@@ -47,13 +47,13 @@ public class CommunityController {
     @Autowired
     private ChatLogService chatLogService;
 
-    @RequestMapping("/community")
+    @RequestMapping("/")
     public View community() {
         Set<CommunityUserModel> communityUserModels = communityUserService.findMemberships();
-        return new RedirectView("/community/" + communityUserModels.iterator().next().getCommunityModel().getName());
+        return new RedirectView("/" + communityUserModels.iterator().next().getCommunityModel().getName());
     }
 
-    @RequestMapping(value = {"/community/{communityName}", "/community/{communityName}/dashboard"})
+    @RequestMapping(value = {"/{communityName}", "/{communityName}/dashboard"})
     public ModelAndView dashboard(@PathVariable String communityName) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("dashboard");
@@ -66,7 +66,7 @@ public class CommunityController {
         return mav;
     }
 
-    @RequestMapping("/community/{communityName}/quotes")
+    @RequestMapping("/{communityName}/quotes")
     public ModelAndView quotes(@PathVariable String communityName,
                                @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"createdDate"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
@@ -77,7 +77,7 @@ public class CommunityController {
         return mav;
     }
 
-    @RequestMapping("/community/{communityName}/commands")
+    @RequestMapping("/{communityName}/commands")
     public ModelAndView commands(@PathVariable String communityName,
                                  @PageableDefault(page = 0, size = 15, direction = Sort.Direction.ASC, sort = {"trigger"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
@@ -88,7 +88,7 @@ public class CommunityController {
         return mav;
     }
 
-    @RequestMapping("/community/{communityName}/leaderboard")
+    @RequestMapping("/{communityName}/leaderboard")
     public ModelAndView leaderboard(@PathVariable String communityName,
                                     @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"points"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
@@ -99,7 +99,7 @@ public class CommunityController {
         return mav;
     }
 
-    @RequestMapping("/community/{communityName}/timers")
+    @RequestMapping("/{communityName}/timers")
     public ModelAndView timers(@PathVariable String communityName,
                                @PageableDefault(page = 0, size = 15, direction = Sort.Direction.ASC, sort = {"communitySequence"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
@@ -110,7 +110,7 @@ public class CommunityController {
         return mav;
     }
 
-    @RequestMapping("/community/{communityName}/log")
+    @RequestMapping("/{communityName}/log")
     public ModelAndView log(@PathVariable String communityName,
                             @PageableDefault(page = 0, size = 50, direction = Sort.Direction.DESC, sort = {"date"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
@@ -121,7 +121,7 @@ public class CommunityController {
         return mav;
     }
 
-    @RequestMapping("/community/{communityName}/admin")
+    @RequestMapping("/{communityName}/admin")
     public ModelAndView admin(@PathVariable String communityName, ModelMap model) {
         if (!communityPermissions.hasAccess(communityName, AccessLevel.OWNER)) {
             throw new AccessDeniedException("Must be a channel owner");

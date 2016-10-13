@@ -33,6 +33,6 @@ public class AdminController {
         }else{
             redirectAttributes.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "pointsForm", bindingResult);
         }
-        return "redirect:/community/" + communityName + "/admin";
+        return "redirect:/" + communityName + "/admin#points";
     }
 }

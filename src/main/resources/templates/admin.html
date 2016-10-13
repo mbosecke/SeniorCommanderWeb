@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-9">
 
-            <h2>Dashboard</h2>
+            <h2 id="dashboard">Dashboard</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/dashboard" method="POST">
                 {{ successMessage(twitchFormSuccessMessage) }}
 
@@ -24,7 +24,7 @@
                 </fieldset>
             </form>
 
-            <h2>Twitch</h2>
+            <h2 id="twitch">Twitch</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/twitch" method="POST">
                 {{ successMessage(twitchFormSuccessMessage) }}
 
@@ -56,7 +56,7 @@
                 </fieldset>
             </form>
 
-            <h2>Discord</h2>
+            <h2 id="discord">Discord</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/discord" method="POST">
                 {{ successMessage(discordFormSuccessMessage) }}
 
@@ -80,7 +80,7 @@
             </form>
 
             <!-- POINTS -->
-            <h2>Points</h2>
+            <h2 id="points">Points</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/points" method="POST">
                 {{ successMessage(pointsFormSuccessMessage) }}
 
@@ -110,7 +110,16 @@
         </div> <!-- end col-md-9 -->
 
         <div class="col-md-3">
-            <!-- reserved for side navigation -->
+            <!--
+            <nav class="hidden-sm affix" data-spy="affix">
+                <ul class="nav">
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#twitch">Twitch</a></li>
+                    <li><a href="#discord">Discord</a></li>
+                    <li><a href="#points">Points</a></li>
+                </ul>
+            </nav>
+            -->
         </div>
     </div>
 </div>
