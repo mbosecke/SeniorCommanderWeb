@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -25,9 +26,12 @@ public class AdminController {
 
     @RequestMapping("/{communityName}/points")
     public String savePointSettings(@PathVariable String communityName, @Valid PointsForm pointsForm,
-                                    BindingResult bindingResult) {
+                                    BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (!bindingResult.hasErrors()) {
             communityService.updatePoints(communityName, pointsForm.getPointsOnline(), pointsForm.getPointsPlural());
+            redirectAttributes.addFlashAttribute("pointsFormSuccessMessage", "Point settings have been updated.");
+        }else{
+            redirectAttributes.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "pointsForm", bindingResult);
         }
         return "redirect:/community/" + communityName + "/admin";
     }

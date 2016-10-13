@@ -5,24 +5,35 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-9">
+
+
             <h2>Points</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/points" method="POST">
-                <div class="form-group">
-                    <label for="pointsOnline" class="col-sm-3 control-label">Points per minute while online.</label>
+
+                {% if pointsFormSuccessMessage is not null %}
+                <p class="bg-success">{{pointsFormSuccessMessage}}</p>
+                {% endif %}
+
+                <div class="form-group {{ hasFieldErrors('pointsForm', 'pointsOnline')? 'has-error' : ''}}">
+                    <label for="pointsOnline" class="col-sm-3 control-label">Points per minute while online</label>
                     <div class="col-sm-9">
                         <input type="number" class="form-control" name="pointsOnline" id="pointsOnline"
                                value="{{pointsOnline | default(10)}}">
+                        {{ fieldErrors(getFieldErrors('pointsForm', 'pointsOnline')) }}
+                        <span class="help-block">Between 0 and 100</span>
                     </div>
                 </div>
-                <div class="form-group">
+
+                <div class="form-group {{ hasFieldErrors('pointsForm', 'pointsPlural')? 'has-error' : ''}}">
                     <label for="pointsPlural" class="col-sm-3 control-label">Name of points</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="pointsPlural" id="pointsPlural"
                                value="{{pointsPlural | default('points')}}">
-                        <span class="help-block">This affects leaderboard and bot messages but not the <code>!points</code> command; use an alias for a custom command.</span>
+                        {{ fieldErrors(getFieldErrors('pointsForm', 'pointsPlural')) }}
+                        <span class="help-block">This affects leaderboard and bot messages but not the <code>!points</code> command; use an alias for a custom command</span>
                     </div>
-
                 </div>
+
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
                         <button type="submit" class="btn btn-primary">Save</button>
@@ -36,3 +47,15 @@
 </div>
 
 {% endblock %}
+
+{% macro fieldErrors(errors) %}
+    {% if errors is not null %}
+    <span class="help-block">
+        <ul>
+        {% for error in errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    </span>
+    {% endif %}
+{% endmacro %}

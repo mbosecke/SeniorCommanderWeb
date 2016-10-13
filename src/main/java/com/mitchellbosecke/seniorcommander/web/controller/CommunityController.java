@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Set;
 
 /**
@@ -122,13 +122,12 @@ public class CommunityController {
     }
 
     @RequestMapping("/community/{communityName}/admin")
-    public ModelAndView admin(@PathVariable String communityName, HttpServletRequest httpServletRequest) {
+    public ModelAndView admin(@PathVariable String communityName, ModelMap model) {
         if (!communityPermissions.hasAccess(communityName, AccessLevel.OWNER)) {
             throw new AccessDeniedException("Must be a channel owner");
         }
         CommunityUserModel communityUserModel = communityUserService.findCommunityUserModel(communityName);
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("admin");
+        ModelAndView mav = new ModelAndView("admin", model);
         mav.addObject("pointsOnline", communityUserModel.getCommunityModel().getSetting("points.online"));
         addCommonMavObjects(mav, communityName, "admin");
         return mav;

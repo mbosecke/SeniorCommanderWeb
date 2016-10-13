@@ -43,3 +43,6 @@ h1#brand{color:#c3c3c3; margin-top:0; padding:14px 0; font-size:18px; text-align
 
 /* Betting */
 .betting-option {font-weight:bold;}
+
+/* Forms */
+form p.bg-success, form p.bg-warning { padding:15px; }
