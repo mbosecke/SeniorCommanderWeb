@@ -129,6 +129,8 @@ public class CommunityController {
         CommunityUserModel communityUserModel = communityUserService.findCommunityUserModel(communityName);
         ModelAndView mav = new ModelAndView("admin", model);
         mav.addObject("pointsOnline", communityUserModel.getCommunityModel().getSetting("points.online"));
+        mav.addObject("twitchChannel", communityUserModel.getCommunityModel().getChannel("irc"));
+        mav.addObject("discordChannel", communityUserModel.getCommunityModel().getChannel("discord"));
         addCommonMavObjects(mav, communityName, "admin");
         return mav;
     }

@@ -18,7 +18,7 @@ public class SeniorCommanderWebApplication extends WebSecurityConfigurerAdapter 
 
         //@formatter:off
         http.antMatcher("/**").authorizeRequests()
-                .antMatchers("/", "/login**", "/css/**", "/privacy", "/terms-of-service").permitAll()
+                .antMatchers("/login**", "/css/**", "/privacy", "/terms-of-service").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");

@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col-md-9">
 
+            <!-- DASHBOARD -->
             <h2 id="dashboard">Dashboard</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/dashboard" method="POST">
                 {{ successMessage(twitchFormSuccessMessage) }}
@@ -24,6 +25,7 @@
                 </fieldset>
             </form>
 
+            <!-- TWITCH -->
             <h2 id="twitch">Twitch</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/twitch" method="POST">
                 {{ successMessage(twitchFormSuccessMessage) }}
@@ -32,7 +34,7 @@
                     <div class="form-group">
                         {{ label('pointsOnline', 'Channel') }}
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="channel" id="channel" value="#senior_commander">
+                            <input type="text" class="form-control" name="channel" id="channel" value="{{twitchChannel.getSetting('channel')}}">
                         </div>
                     </div>
 
@@ -56,6 +58,7 @@
                 </fieldset>
             </form>
 
+            <!-- DISCORD -->
             <h2 id="discord">Discord</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/discord" method="POST">
                 {{ successMessage(discordFormSuccessMessage) }}
@@ -64,14 +67,14 @@
                     <div class="form-group">
                         {{ label('guild', 'Guild') }}
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="guild" id="guild" value="mbosecke">
+                            <input type="text" class="form-control" name="guild" id="guild" value="{{discordChannel.getSetting('guild')}}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         {{ label('discordChannel', 'Channel') }}
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="discordChannel" id="discordChannel" value="test" placeholder="Coming Soon">
+                            <input type="text" class="form-control" name="discordChannel" id="discordChannel" value="{{discordChannel.getSetting('channel')}}" placeholder="Coming Soon">
                         </div>
                     </div>
 

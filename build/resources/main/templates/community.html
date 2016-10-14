@@ -9,26 +9,26 @@
 <ul class="nav nav-tabs">
 
     <li role="presentation" class="{{activeTab == 'dashboard'? 'active' : ''}}"><a
-            href="/community/{{communityName}}/dashboard">Dashboard</a></li>
+            href="/{{communityName}}/dashboard">Dashboard</a></li>
 
     <li role="presentation" class="{{activeTab == 'leaderboard'? 'active' : ''}}"><a
-            href="/community/{{communityName}}/leaderboard">Leaderboard</a></li>
+            href="/{{communityName}}/leaderboard">Leaderboard</a></li>
 
     <li role="presentation" class="{{activeTab == 'quotes'? 'active' : ''}}"><a
-            href="/community/{{communityName}}/quotes">Quotes</a></li>
+            href="/{{communityName}}/quotes">Quotes</a></li>
 
     <li role="presentation" class="{{activeTab == 'commands'? 'active' : ''}}"><a
-            href="/community/{{communityName}}/commands">Commands</a></li>
+            href="/{{communityName}}/commands">Commands</a></li>
 
     {% if hasOwnerAccess %}
         <li role="presentation" class="{{activeTab == 'timers'? 'active' : ''}}"><a
-                href="/community/{{communityName}}/timers">Timers</a></li>
+                href="/{{communityName}}/timers">Timers</a></li>
 
         <li role="presentation" class="{{activeTab == 'log'? 'active' : ''}}"><a
-                href="/community/{{communityName}}/log">Chat Log</a></li>
+                href="/{{communityName}}/log">Chat Log</a></li>
 
         <li role="presentation" class="{{activeTab == 'admin'? 'active' : ''}}"><a
-                href="/community/{{communityName}}/admin">Admin</a></li>
+                href="/{{communityName}}/admin">Admin</a></li>
     {% endif %}
 </ul>
 

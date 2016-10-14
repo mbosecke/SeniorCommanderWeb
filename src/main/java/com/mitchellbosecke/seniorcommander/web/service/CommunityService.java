@@ -9,4 +9,5 @@ public interface CommunityService {
 
     @PreAuthorize("@communityPermissions.hasAccess(#communityName, 'OWNER')")
     void updatePoints(String communityName, int onlinePoints, String pointName);
+
 }

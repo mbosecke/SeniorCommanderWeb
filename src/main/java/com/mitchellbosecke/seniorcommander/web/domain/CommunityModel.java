@@ -77,4 +77,17 @@ public class CommunityModel {
         }
         return result;
     }
+
+    @Transient
+    public ChannelModel getChannel(String type){
+        ChannelModel result = null;
+        for(ChannelModel channel : channelModels){
+            if(channel.getType().equalsIgnoreCase(type)){
+                result = channel;
+                break;
+            }
+        }
+        return result;
+    }
 }
+
