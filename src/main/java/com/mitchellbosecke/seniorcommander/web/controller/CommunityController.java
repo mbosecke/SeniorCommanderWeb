@@ -10,20 +10,16 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
-import org.springframework.web.servlet.view.RedirectView;
-
-import java.util.Set;
 
 /**
  * Created by mitch_000 on 2016-09-11.
  */
-@RestController
+@Controller
 public class CommunityController {
 
     @Autowired
@@ -47,13 +43,12 @@ public class CommunityController {
     @Autowired
     private ChatLogService chatLogService;
 
-    @RequestMapping("/")
-    public View community() {
-        Set<CommunityUserModel> communityUserModels = communityUserService.findMemberships();
-        return new RedirectView("/" + communityUserModels.iterator().next().getCommunityModel().getName());
+    @RequestMapping("/{communityName}")
+    public String community(@PathVariable String communityName){
+        return "redirect:/" + communityName + "/dashboard";
     }
 
-    @RequestMapping(value = {"/{communityName}", "/{communityName}/dashboard"})
+    @RequestMapping(value = {"/{communityName}/dashboard"})
     public ModelAndView dashboard(@PathVariable String communityName) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("dashboard");

@@ -10,10 +10,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RootController {
 
-    @RequestMapping("/login")
-    public ModelAndView login() {
+    @RequestMapping("/")
+    public String community() {
+        return "redirect:/home";
+    }
+
+    @RequestMapping("/home")
+    public ModelAndView home() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("login");
+        mav.setViewName("home");
         return mav;
     }
 

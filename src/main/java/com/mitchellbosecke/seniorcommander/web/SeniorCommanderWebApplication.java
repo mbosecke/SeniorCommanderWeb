@@ -15,13 +15,17 @@ public class SeniorCommanderWebApplication extends WebSecurityConfigurerAdapter 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
         //@formatter:off
-        http.antMatcher("/**").authorizeRequests()
-                .antMatchers("/login**", "/css/**", "/privacy", "/terms-of-service").permitAll()
-                .anyRequest().authenticated()
-                .and().csrf().disable()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+        http
+            .antMatcher("/**")
+            .authorizeRequests()
+                .antMatchers("/", "/home", "/css/**", "/privacy", "/terms-of-service")
+                .permitAll()
+            .anyRequest()
+                .fullyAuthenticated()
+            .and()
+                .csrf().disable()
+            .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/home");
         //@formatter:on
     }
 
