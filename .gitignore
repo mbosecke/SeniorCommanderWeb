@@ -1,5 +1,12 @@
 *.class
+.gradle
+/build/
 
+# Intellij
+/out/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/libraries/*.xml
 
 # Package Files #
 *.jar
