@@ -51,7 +51,7 @@ public class CommunityController {
     @RequestMapping(value = {"/{communityName}/dashboard"})
     public ModelAndView dashboard(@PathVariable String communityName) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("dashboard");
+        mav.setViewName("community/dashboard");
 
         addCommonMavObjects(mav, communityName, "dashboard");
 
@@ -65,7 +65,7 @@ public class CommunityController {
     public ModelAndView quotes(@PathVariable String communityName,
                                @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"createdDate"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("quotes");
+        mav.setViewName("community/quotes");
         addCommonMavObjects(mav, communityName, "quotes");
 
         mav.addObject("page", quoteService.findQuotes(communityName, pageable));
@@ -76,7 +76,7 @@ public class CommunityController {
     public ModelAndView commands(@PathVariable String communityName,
                                  @PageableDefault(page = 0, size = 15, direction = Sort.Direction.ASC, sort = {"trigger"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("commands");
+        mav.setViewName("community/commands");
         addCommonMavObjects(mav, communityName, "commands");
 
         mav.addObject("page", commandService.findCommands(communityName, pageable));
@@ -87,7 +87,7 @@ public class CommunityController {
     public ModelAndView leaderboard(@PathVariable String communityName,
                                     @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"points"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("leaderboard");
+        mav.setViewName("community/leaderboard");
         addCommonMavObjects(mav, communityName, "leaderboard");
 
         mav.addObject("page", communityUserService.findUsers(communityName, pageable));
@@ -98,7 +98,7 @@ public class CommunityController {
     public ModelAndView timers(@PathVariable String communityName,
                                @PageableDefault(page = 0, size = 15, direction = Sort.Direction.ASC, sort = {"communitySequence"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("timers");
+        mav.setViewName("community/timers");
 
         addCommonMavObjects(mav, communityName, "timers");
         mav.addObject("page", timerService.findTimers(communityName, pageable));
@@ -109,7 +109,7 @@ public class CommunityController {
     public ModelAndView log(@PathVariable String communityName,
                             @PageableDefault(page = 0, size = 50, direction = Sort.Direction.DESC, sort = {"date"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("log");
+        mav.setViewName("community/log");
 
         addCommonMavObjects(mav, communityName, "log");
         mav.addObject("page", chatLogService.findLogs(communityName, pageable));
@@ -122,7 +122,7 @@ public class CommunityController {
             throw new AccessDeniedException("Must be a channel owner");
         }
         CommunityUserModel communityUserModel = communityUserService.findCommunityUserModel(communityName);
-        ModelAndView mav = new ModelAndView("admin", model);
+        ModelAndView mav = new ModelAndView("community/admin", model);
         mav.addObject("pointsOnline", communityUserModel.getCommunityModel().getSetting("points.online"));
         mav.addObject("twitchChannel", communityUserModel.getCommunityModel().getChannel("irc"));
         mav.addObject("discordChannel", communityUserModel.getCommunityModel().getChannel("discord"));
