@@ -11,8 +11,12 @@ h1#brand{color:#c3c3c3; margin-top:0; padding:14px 0; font-size:18px; text-align
 .button-twitch:hover {color:#fff; text-decoration:none;}
 
 /* Primary Layout */
-#wrapper { padding-left:250px;}
-#sidebar-wrapper { width:250px; position:fixed; left:250px; height:100%; margin-left:-250px; overflow-y:auto; background:#2a3f54;}
+#wrapper { padding-left:10px; }
+#wrapper.includes-sidebar { padding-left:250px;}
+#sidebar-wrapper, #collapsed-sidebar { position:fixed; left:0px; height:100%; overflow-y:auto; background:#2a3f54;}
+#sidebar-wrapper{ width:250px; }
+#collapsed-sidebar {width:10px; display:none; cursor:pointer;}
+#collapsed-sidebar:hover {background: #17222e;}
 #page-content-wrapper {width:100%; position:relative; }
 .navbar{margin-bottom:10px;}
 .nav-tabs { margin-bottom:10px;}
@@ -27,6 +31,9 @@ h1#brand{color:#c3c3c3; margin-top:0; padding:14px 0; font-size:18px; text-align
 .sidebar-footer { font-size:0.9em; position:absolute; bottom:0; margin:10px;}
 .sidebar-footer a, .sidebar-footer a:hover {color:#6392bd;}
 .sidebar-footer a:hover {color:#4d7ba5;}
+.sidebar-toggle {float:left; margin-top:10px; color:#aaa; cursor:pointer; padding:4px 6px; background:#eee;}
+.sidebar-toggle:hover {color:#444;}
+
 
 /* Panel styling */
 .panel-success {border-color: #74a59b;}
