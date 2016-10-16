@@ -7,8 +7,8 @@ spring:
 security:
   oauth2:
     client:
-      clientId: hlwwxhj8cgqapba47blso4hwuh3amv0
-      clientSecret: 5m8x6gpddwcweewry4tbdowpxbqddrh
+      clientId: hk8e73z9j2d3xplierlk0e7mgo3bw23
+      clientSecret: jky4h8bo4bd471hluzmhejceg3111s0
       accessTokenUri: https://api.twitch.tv/kraken/oauth2/token
       userAuthorizationUri: https://api.twitch.tv/kraken/oauth2/authorize
       tokenName: oauth_token

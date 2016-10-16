@@ -101,7 +101,7 @@
                     {{ label('pointsPlural', 'Name of points') }}
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="pointsPlural" id="pointsPlural"
-                               value="{{pointsPlural | default('points')}}">
+                               value="{{pointsPlural | default('Points')}}">
                         {{ fieldErrors(getFieldErrors('pointsForm', 'pointsPlural')) }}
                         <span class="help-block">This affects leaderboard and bot messages but not the <code>!points</code> command; use an alias for a custom command.</span>
                     </div>

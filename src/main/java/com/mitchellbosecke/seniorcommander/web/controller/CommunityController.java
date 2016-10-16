@@ -136,7 +136,8 @@ public class CommunityController {
         mav.addObject("communityUserModels", communityUserService.findMemberships());
         mav.addObject("communityUserModel", communityUserModel);
         mav.addObject("hasOwnerAccess", communityPermissions.hasAccess(communityName, AccessLevel.OWNER));
-        mav.addObject("pointsPlural", communityUserModel.getCommunityModel().getSetting("points.plural"));
+        String pointsPlural = communityUserModel.getCommunityModel().getSetting("points.plural");
+        mav.addObject("pointsPlural", pointsPlural == null? "Points" : pointsPlural);
         mav.addObject("activeTab", activeTab);
     }
 }
