@@ -15,16 +15,45 @@
     {% endfor %}
 
     <nav aria-label="Page navigation">
-        <ul class="pagination">
+        <ul class="pagination pagination-sm">
             <li class="{{ page.hasPrevious? '' : 'disabled' }}">
                 <a href="{{- pageUrl(page.previousPageable.pageNumber, page.previousPageable.pageSize, order.property, order.direction) }}" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
 
-            {% for index in 0..(page.totalPages-1) %}
-                <li class="{{ index == page.number? 'active' : '' }}"><a href="{{- pageUrl(index, page.size, order.property, order.direction) -}}">{{index + 1}}</a></li>
+            {# zero index the last page #}
+            {% set lastPage = (page.totalPages-1) %}
+
+            {% set currentCloseToBeginning = page.number <= 7 %}
+            {% set currentCloseToEnd = (page.number + 7) >= lastPage %}
+
+            {% set lastPrintedIndex = 0 %}
+            {% for index in 0..lastPage %}
+                {% set printIndex = false %}
+
+                {% if index < 2 %}
+                    {% set printIndex = true %}
+                {% elseif (currentCloseToBeginning and index <= max(6, page.number+3)) %}
+                    {% set printIndex = true %}
+                {% elseif (currentCloseToEnd and index >= min(lastPage-6, page.number-3)) %}
+                    {% set printIndex = true %}
+                {% elseif (index >= (page.number-3)) and (index <= (page.number+3)) %}
+                    {% set printIndex = true %}
+                {% elseif index >= (lastPage - 1) %}
+                    {% set printIndex = true %}
+                {% endif %}
+
+                {% if printIndex %}
+                    {% if index - lastPrintedIndex > 1 %}
+                        <li class="pagination-break">..</li>
+                    {% endif %}
+                    <li class="{{ index == page.number? 'active' : '' }}"><a href="{{- pageUrl(index, page.size, order.property, order.direction) -}}">{{index + 1}}</a></li>
+                    {% set lastPrintedIndex = index %}
+                {% endif %}
             {% endfor %}
+
+
 
             <li class="{{ page.hasNext? '' : 'disabled' }}">
                 <a href="{{- pageUrl(page.nextPageable.pageNumber, page.nextPageable.pageSize, order.property, order.direction) -}}" aria-label="Next">
