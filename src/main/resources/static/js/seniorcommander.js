@@ -1,5 +1,6 @@
-$(function(){
+var sc = sc || {};
 
+$(function(){
 
     /**************************************
      * Collapsing sidebar
@@ -7,28 +8,20 @@ $(function(){
 
     var CONFIG_COLLAPSED_SIDEBAR = 'collapsed-sidebar';
 
-    var toggleSidebar = function(){
-        $('.sidebar-toggle>.glyphicon').toggleClass('glyphicon-chevron-left glyphicon-chevron-right');
-        $('#wrapper').toggleClass('includes-sidebar');
-        $('#sidebar-wrapper,#collapsed-sidebar').toggle();
-    }
-
     $('.sidebar-toggle,#collapsed-sidebar').on('click', function(){
 
-        toggleSidebar();
+        $('.sidebar-toggle>.glyphicon').toggleClass('glyphicon-chevron-left glyphicon-chevron-right');
+        $('#wrapper').toggleClass('includes-sidebar');
+        //$('#sidebar-wrapper,#collapsed-sidebar').toggle();
 
-        // persist the state in local storage
-        if(localStorage[CONFIG_COLLAPSED_SIDEBAR]){
-            localStorage.removeItem(CONFIG_COLLAPSED_SIDEBAR);
+        // persist the setting
+        if(sc.util.getCookie(CONFIG_COLLAPSED_SIDEBAR)){
+            sc.util.eraseCookie(CONFIG_COLLAPSED_SIDEBAR);
         }else{
-            localStorage[CONFIG_COLLAPSED_SIDEBAR] = true;
+            sc.util.setCookie(CONFIG_COLLAPSED_SIDEBAR, true);
         }
         return false;
     });
-
-    if(localStorage[CONFIG_COLLAPSED_SIDEBAR]){
-        toggleSidebar();
-    }
 
 
 });

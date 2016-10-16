@@ -15,6 +15,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.WebUtils;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by mitch_000 on 2016-09-11.
@@ -49,11 +52,11 @@ public class CommunityController {
     }
 
     @RequestMapping(value = {"/{communityName}/dashboard"})
-    public ModelAndView dashboard(@PathVariable String communityName) {
+    public ModelAndView dashboard(HttpServletRequest request, @PathVariable String communityName) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("community/dashboard");
 
-        addCommonMavObjects(mav, communityName, "dashboard");
+        addCommonMavObjects(request, mav, communityName, "dashboard");
 
         mav.addObject("randomQuote", quoteService.findRandomQuote(communityName));
         mav.addObject("topUsers", communityUserService.findTopUsers(communityName));
@@ -62,62 +65,62 @@ public class CommunityController {
     }
 
     @RequestMapping("/{communityName}/quotes")
-    public ModelAndView quotes(@PathVariable String communityName,
+    public ModelAndView quotes(HttpServletRequest request, @PathVariable String communityName,
                                @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"createdDate"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("community/quotes");
-        addCommonMavObjects(mav, communityName, "quotes");
+        addCommonMavObjects(request, mav, communityName, "quotes");
 
         mav.addObject("page", quoteService.findQuotes(communityName, pageable));
         return mav;
     }
 
     @RequestMapping("/{communityName}/commands")
-    public ModelAndView commands(@PathVariable String communityName,
+    public ModelAndView commands(HttpServletRequest request, @PathVariable String communityName,
                                  @PageableDefault(page = 0, size = 15, direction = Sort.Direction.ASC, sort = {"trigger"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("community/commands");
-        addCommonMavObjects(mav, communityName, "commands");
+        addCommonMavObjects(request, mav, communityName, "commands");
 
         mav.addObject("page", commandService.findCommands(communityName, pageable));
         return mav;
     }
 
     @RequestMapping("/{communityName}/leaderboard")
-    public ModelAndView leaderboard(@PathVariable String communityName,
+    public ModelAndView leaderboard(HttpServletRequest request, @PathVariable String communityName,
                                     @PageableDefault(page = 0, size = 15, direction = Sort.Direction.DESC, sort = {"points"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("community/leaderboard");
-        addCommonMavObjects(mav, communityName, "leaderboard");
+        addCommonMavObjects(request, mav, communityName, "leaderboard");
 
         mav.addObject("page", communityUserService.findUsers(communityName, pageable));
         return mav;
     }
 
     @RequestMapping("/{communityName}/timers")
-    public ModelAndView timers(@PathVariable String communityName,
+    public ModelAndView timers(HttpServletRequest request, @PathVariable String communityName,
                                @PageableDefault(page = 0, size = 15, direction = Sort.Direction.ASC, sort = {"communitySequence"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("community/timers");
 
-        addCommonMavObjects(mav, communityName, "timers");
+        addCommonMavObjects(request, mav, communityName, "timers");
         mav.addObject("page", timerService.findTimers(communityName, pageable));
         return mav;
     }
 
     @RequestMapping("/{communityName}/log")
-    public ModelAndView log(@PathVariable String communityName,
+    public ModelAndView log(HttpServletRequest request, @PathVariable String communityName,
                             @PageableDefault(page = 0, size = 50, direction = Sort.Direction.DESC, sort = {"date"}) Pageable pageable) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("community/log");
 
-        addCommonMavObjects(mav, communityName, "log");
+        addCommonMavObjects(request, mav, communityName, "log");
         mav.addObject("page", chatLogService.findLogs(communityName, pageable));
         return mav;
     }
 
     @RequestMapping("/{communityName}/admin")
-    public ModelAndView admin(@PathVariable String communityName, ModelMap model) {
+    public ModelAndView admin(HttpServletRequest request, @PathVariable String communityName, ModelMap model) {
         if (!communityPermissions.hasAccess(communityName, AccessLevel.OWNER)) {
             throw new AccessDeniedException("Must be a channel owner");
         }
@@ -126,11 +129,11 @@ public class CommunityController {
         mav.addObject("pointsOnline", communityUserModel.getCommunityModel().getSetting("points.online"));
         mav.addObject("twitchChannel", communityUserModel.getCommunityModel().getChannel("irc"));
         mav.addObject("discordChannel", communityUserModel.getCommunityModel().getChannel("discord"));
-        addCommonMavObjects(mav, communityName, "admin");
+        addCommonMavObjects(request, mav, communityName, "admin");
         return mav;
     }
 
-    private void addCommonMavObjects(ModelAndView mav, String communityName, String activeTab) {
+    private void addCommonMavObjects(HttpServletRequest request, ModelAndView mav, String communityName, String activeTab) {
         CommunityUserModel communityUserModel = communityUserService.findCommunityUserModel(communityName);
         mav.addObject("username", SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         mav.addObject("communityUserModels", communityUserService.findMemberships());
@@ -139,5 +142,6 @@ public class CommunityController {
         String pointsPlural = communityUserModel.getCommunityModel().getSetting("points.plural");
         mav.addObject("pointsPlural", pointsPlural == null? "Points" : pointsPlural);
         mav.addObject("activeTab", activeTab);
+        mav.addObject("collapsedSidebar", WebUtils.getCookie(request, "collapsed-sidebar") != null);
     }
 }

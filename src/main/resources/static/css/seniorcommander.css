@@ -13,10 +13,13 @@ h1#brand{color:#c3c3c3; margin-top:0; padding:14px 0; font-size:18px; text-align
 /* Primary Layout */
 #wrapper { padding-left:10px; }
 #wrapper.includes-sidebar { padding-left:250px;}
-#sidebar-wrapper, #collapsed-sidebar { position:fixed; left:0px; height:100%; overflow-y:auto; background:#2a3f54;}
-#sidebar-wrapper{ width:250px; }
-#collapsed-sidebar {width:10px; display:none; cursor:pointer;}
+#sidebar-wrapper, #collapsed-sidebar { position:fixed; left:0px; height:100%; background:#2a3f54;}
+#sidebar-wrapper{ width:250px; display:none;}
+#collapsed-sidebar {width:10px; cursor:pointer;}
 #collapsed-sidebar:hover {background: #17222e;}
+#wrapper.includes-sidebar #collapsed-sidebar {display:none;}
+#wrapper.includes-sidebar #sidebar-wrapper {display:block;}
+
 #page-content-wrapper {width:100%; position:relative; }
 .navbar{margin-bottom:10px;}
 .nav-tabs { margin-bottom:10px;}
