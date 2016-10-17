@@ -15,7 +15,7 @@
 {% for timer in page %}
     <tr>
         <th>{{timer.communitySequence}}</th>
-        <td>{{timer.channelModel.type}}</td>
+        <td>{% if timer.channelModel.type == 'irc' %}Twitch{% elseif timer.channelModel.type == 'discord' %}Discord{% endif %}</td>
         <td>{{timer.message}}</td>
         <td>{{timer.description}}</td>
         <td>

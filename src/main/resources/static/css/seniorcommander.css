@@ -25,6 +25,7 @@ h1#brand{color:#c3c3c3; margin-top:0; padding:14px 0; font-size:18px; text-align
 .nav-tabs { margin-bottom:10px;}
 .page-header {margin-top:20px;}
 
+
 /* Sidebar */
 .brand-wrapper{background:#172D44; }
 #sidebar-wrapper .nav-pills>li>a { color: #dedede; border-radius:0;}
@@ -37,6 +38,10 @@ h1#brand{color:#c3c3c3; margin-top:0; padding:14px 0; font-size:18px; text-align
 .sidebar-toggle {float:left; margin-top:10px; color:#aaa; cursor:pointer; padding:4px 6px; background:#eee;}
 .sidebar-toggle:hover {color:#444;}
 
+
+/* Community */
+.page-header > img { width: 80px;  }
+.page-header > h1 {display:inline-block; vertical-align:bottom; margin: 0 0 0 20px;}
 
 /* Panel styling */
 .panel-success {border-color: #74a59b;}

@@ -21,4 +21,7 @@ security:
 pebble:
   suffix: .html
 
+twitch:
+  clientId: hk8e73z9j2d3xplierlk0e7mgo3bw23
+
 logging.level.org.springframework.web: DEBUG

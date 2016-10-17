@@ -4,7 +4,9 @@ import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
 import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
 import com.mitchellbosecke.seniorcommander.web.security.CommunityPermissions;
 import com.mitchellbosecke.seniorcommander.web.service.*;
+import com.mitchellbosecke.seniorcommander.web.twitch.TwitchApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -45,6 +47,9 @@ public class CommunityController {
 
     @Autowired
     private ChatLogService chatLogService;
+
+    @Autowired
+    private Environment environment;
 
     @RequestMapping("/{communityName}")
     public String community(@PathVariable String communityName){
@@ -139,9 +144,19 @@ public class CommunityController {
         mav.addObject("communityUserModels", communityUserService.findMemberships());
         mav.addObject("communityUserModel", communityUserModel);
         mav.addObject("hasOwnerAccess", communityPermissions.hasAccess(communityName, AccessLevel.OWNER));
-        String pointsPlural = communityUserModel.getCommunityModel().getSetting("points.plural");
-        mav.addObject("pointsPlural", pointsPlural == null? "Points" : pointsPlural);
         mav.addObject("activeTab", activeTab);
         mav.addObject("collapsedSidebar", WebUtils.getCookie(request, "collapsed-sidebar") != null);
+
+        // points name
+        String pointsPlural = communityUserModel.getCommunityModel().getSetting("points.plural");
+        mav.addObject("pointsPlural", pointsPlural == null? "Points" : pointsPlural);
+
+        // community profile pic url
+        TwitchApi twitchApi = new TwitchApi(environment.getProperty("twitch.clientId"));
+        mav.addObject("communityLogo", twitchApi.channel(communityName).getLogo());
+
+
+
+
     }
 }
