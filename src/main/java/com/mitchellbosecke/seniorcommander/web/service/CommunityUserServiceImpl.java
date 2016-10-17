@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,6 +42,6 @@ public class CommunityUserServiceImpl implements CommunityUserService {
 
     @Override
     public Page<CommunityUserModel> findUsers(String communityName, Pageable pageable) {
-        return communityUserModelRepository.findAllByComunityName(communityName, pageable);
+        return communityUserModelRepository.findAllByCommunityName(communityName, pageable);
     }
 }

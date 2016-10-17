@@ -41,7 +41,15 @@ public interface CommunityUserModelRepository extends JpaRepository<CommunityUse
             "WHERE cu.communityModel.name = :communityName " +
             "AND cu.bot = false")
     //@formatter:on
-    Page<CommunityUserModel> findAllByComunityName(@Param("communityName") String communityName, Pageable pageable);
+    Page<CommunityUserModel> findAllByCommunityName(@Param("communityName") String communityName, Pageable pageable);
+
+    //@formatter:off
+    @Query("SELECT cu FROM CommunityUserModel cu " +
+            "WHERE cu.communityModel.name = :communityName " +
+            "AND cu.firstFollowed IS NOT NULL " +
+            "AND cu.bot = false")
+    //@formatter:on
+    Page<CommunityUserModel> findFollowersByCommunityName(@Param("communityName") String communityName, Pageable pageable);
 
     //@formatter:off
     @Query("SELECT u " +

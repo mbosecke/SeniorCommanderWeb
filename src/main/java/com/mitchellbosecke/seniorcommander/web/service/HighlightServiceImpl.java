@@ -35,7 +35,7 @@ public class HighlightServiceImpl implements HighlightService {
     private Highlight newestFollower(String communityName) {
 
         Page<CommunityUserModel> page = userRepository
-                .findAllByComunityName(communityName, new PageRequest(0, 1, Sort.Direction.DESC, "firstFollowed"));
+                .findFollowersByCommunityName(communityName, new PageRequest(0, 1, Sort.Direction.DESC, "firstFollowed"));
 
         if(!page.getContent().isEmpty()){
             return new Highlight(page.getContent().get(0), "Newest Follower");
