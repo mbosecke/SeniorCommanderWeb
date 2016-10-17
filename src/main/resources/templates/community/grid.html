@@ -82,12 +82,12 @@
             {% set icon = 'glyphicon-triangle-bottom' %}
         {% endif %}
 
-        <td>
+        <td class="grid-header">
             <a href="{{pageUrl(0, page.size, sortField, oppositeDirection)}}">{{text}}
                 <span class="glyphicon {{icon}}" aria-hidden="true"></span>
             </a>
         </td>
     {% else %}
-        <td><a href="{{pageUrl(0, page.size, sortField)}}">{{text}}</a></td>
+        <td class="grid-header"><a href="{{pageUrl(0, page.size, sortField)}}">{{text}}</a></td>
     {% endif %}
 {% endmacro %}
