@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -61,6 +61,6 @@ public interface CommunityUserModelRepository extends JpaRepository<CommunityUse
             "GROUP BY u " +
             "ORDER BY count(l) DESC ")
     //@formatter:on
-    List<CommunityUserModel> findChattiest(@Param("communityName") String communityName, @Param("since") Date since, Pageable pageable);
+    List<CommunityUserModel> findChattiest(@Param("communityName") String communityName, @Param("since") ZonedDateTime since, Pageable pageable);
 
 }

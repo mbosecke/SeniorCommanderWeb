@@ -24,4 +24,14 @@ $(function(){
     });
 
 
+    // UTC Dates
+    $('span.utc-date').each(function(i, ele){
+        var $element = $(ele);
+        //var date = new Date($element.text());
+        var format = $element.attr('data-format');
+        $element.text(moment($element.text()).format(format));
+    });
+
+
+
 });

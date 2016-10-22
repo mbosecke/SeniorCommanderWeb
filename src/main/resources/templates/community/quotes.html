@@ -13,7 +13,7 @@
         <th>{{quote.communitySequence}}</th>
         <td>{{quote.content}}</td>
         <td>{{quote.author}}</td>
-        <td>{{quote.createdDate | date('yyyy-MM-dd')}}</td>
+        <td>{{quote.createdDate | utc('YYYY-MM-D')}}</td>
     </tr>
     {% endfor %}
 {% endblock %}

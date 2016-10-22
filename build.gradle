@@ -28,6 +28,8 @@ repositories {
 
 dependencies {
 
+	compile('org.hibernate:hibernate-core:5.2.3.Final')
+
     // spring
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
@@ -36,6 +38,7 @@ dependencies {
 
     // database
     compile('org.postgresql:postgresql')
+
 
     // pebble
     compile('com.mitchellbosecke:pebble:2.2.4-SNAPSHOT')

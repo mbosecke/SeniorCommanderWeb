@@ -13,7 +13,7 @@
         <th>{{log.communityUserModel.name}}</th>
         <td>{{log.message}}</td>
         <td>{% if timer.channelModel.type == 'irc' %}Twitch{% elseif timer.channelModel.type == 'discord' %}Discord{% endif %}</td>
-        <td>{{log.date | date('yyyy-MM-dd h:m:s a')}}</td>
+        <td>{{log.date | utc('YYYY-MM-D hh:mm a')}}</td>
     </tr>
     {% endfor %}
 

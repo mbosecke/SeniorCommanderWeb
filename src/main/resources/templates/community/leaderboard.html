@@ -11,8 +11,8 @@
         <tr>
             <th>{{user.name}}</th>
             <td>{{user.points}}</td>
-            <td>{{user.firstSeen | date('yyyy-MM-dd')}}</td>
-            <td>{{user.lastChatted | date('yyyy-MM-dd')}}</td>
+            <td>{{user.firstSeen | utc('YYYY-MM-D')}}</td>
+            <td>{{user.lastChatted | utc('YYYY-MM-D')}}</td>
         </tr>
     {% endfor %}
 {% endblock %}

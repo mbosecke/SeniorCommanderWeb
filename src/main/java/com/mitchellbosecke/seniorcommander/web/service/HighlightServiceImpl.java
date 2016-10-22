@@ -10,11 +10,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -44,9 +42,8 @@ public class HighlightServiceImpl implements HighlightService {
     }
 
     private Highlight chattiest(String communityName) {
-        LocalDate lastWeek = LocalDate.now().minus(1, ChronoUnit.WEEKS);
-        Date lastWeekDate = Date.from(lastWeek.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        List<CommunityUserModel> users = userRepository.findChattiest(communityName, lastWeekDate, new PageRequest(0, 1));
+        ZonedDateTime lastWeek = ZonedDateTime.now(ZoneId.of("UTC")).minusDays(7);
+        List<CommunityUserModel> users = userRepository.findChattiest(communityName, lastWeek, new PageRequest(0, 1));
         if(!users.isEmpty()){
             return new Highlight(users.get(0), "Chattiest");
         }

@@ -1,8 +1,11 @@
 package com.mitchellbosecke.seniorcommander.web;
 
+import com.mitchellbosecke.pebble.extension.Extension;
+import com.mitchellbosecke.seniorcommander.web.ui.PebbleExtension;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -27,6 +30,11 @@ public class SeniorCommanderWebApplication extends WebSecurityConfigurerAdapter 
                 .csrf().disable()
             .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/home");
         //@formatter:on
+    }
+
+    @Bean
+    public Extension pebbleExtension(){
+        return new PebbleExtension();
     }
 
     public static void main(String[] args) {

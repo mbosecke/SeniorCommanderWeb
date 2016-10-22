@@ -3,7 +3,7 @@ package com.mitchellbosecke.seniorcommander.web.domain;
 import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 /**
  * Created by mitch_000 on 2016-07-10.
@@ -32,16 +32,13 @@ public class CommunityUserModel {
     private AccessLevel accessLevel;
 
     @Column(name = "first_seen")
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Date firstSeen;
+    private ZonedDateTime firstSeen;
 
     @Column(name = "last_chatted")
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Date lastChatted;
+    private ZonedDateTime lastChatted;
 
     @Column(name = "first_followed")
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Date firstFollowed;
+    private ZonedDateTime firstFollowed;
 
     @Column
     private boolean bot;
@@ -86,27 +83,27 @@ public class CommunityUserModel {
         this.points = points;
     }
 
-    public Date getFirstSeen() {
+    public ZonedDateTime getFirstSeen() {
         return firstSeen;
     }
 
-    public void setFirstSeen(Date firstSeen) {
+    public void setFirstSeen(ZonedDateTime firstSeen) {
         this.firstSeen = firstSeen;
     }
 
-    public Date getLastChatted() {
+    public ZonedDateTime getLastChatted() {
         return lastChatted;
     }
 
-    public void setLastChatted(Date lastChatted) {
+    public void setLastChatted(ZonedDateTime lastChatted) {
         this.lastChatted = lastChatted;
     }
 
-    public Date getFirstFollowed() {
+    public ZonedDateTime getFirstFollowed() {
         return firstFollowed;
     }
 
-    public void setFirstFollowed(Date firstFollowed) {
+    public void setFirstFollowed(ZonedDateTime firstFollowed) {
         this.firstFollowed = firstFollowed;
     }
 

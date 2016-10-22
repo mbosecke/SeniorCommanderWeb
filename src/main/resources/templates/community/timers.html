@@ -33,7 +33,7 @@
             <span class="label label-danger">disabled</span>
             {% endif %}
         </td>
-        <td>{{timer.lastExecuted | date('yyyy-MM-dd h:m:s a')}}</td>
+        <td>{{timer.lastExecuted | utc('YYYY-MM-D hh:mm a')}}</td>
     </tr>
 {% endfor %}
 
