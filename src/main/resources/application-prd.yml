@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://seniorcommanderdb.coulzkuj6osz.us-east-1.rds.amazonaws.com:5432/seniorcommander
+    username: seniorcommander
+    password: D2SWE86mutAh4awq
+
+security:
+  oauth2:
+    client:
+      clientId: hlwwxhj8cgqapba47blso4hwuh3amv0
+      clientSecret: sxyqh3domb3mvavqwibox2n7ixtmh
+
+twitch:
+  clientId: hlwwxhj8cgqapba47blso4hwuh3amv0
