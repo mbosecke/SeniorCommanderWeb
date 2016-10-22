@@ -4,7 +4,7 @@ import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
 import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
 import com.mitchellbosecke.seniorcommander.web.security.CommunityPermissions;
 import com.mitchellbosecke.seniorcommander.web.service.*;
-import com.mitchellbosecke.seniorcommander.web.twitch.TwitchApi;
+import com.mitchellbosecke.twitchapi.TwitchApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Pageable;
