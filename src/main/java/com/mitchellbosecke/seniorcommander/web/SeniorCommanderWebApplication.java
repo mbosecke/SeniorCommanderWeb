@@ -1,19 +1,20 @@
 package com.mitchellbosecke.seniorcommander.web;
 
-import com.mitchellbosecke.pebble.extension.Extension;
-import com.mitchellbosecke.seniorcommander.web.ui.PebbleExtension;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-@SpringBootApplication
+@SpringBootConfiguration
+@EnableAutoConfiguration
 @EnableOAuth2Sso
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@ComponentScan
 public class SeniorCommanderWebApplication extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -30,11 +31,6 @@ public class SeniorCommanderWebApplication extends WebSecurityConfigurerAdapter 
                 .csrf().disable()
             .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/home");
         //@formatter:on
-    }
-
-    @Bean
-    public Extension pebbleExtension(){
-        return new PebbleExtension();
     }
 
     public static void main(String[] args) {
