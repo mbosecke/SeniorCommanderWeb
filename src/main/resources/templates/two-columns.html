@@ -13,7 +13,7 @@
         <ul class="nav nav-pills nav-stacked">
             {% for communityUser in communityUserModels %}
             <li class="{{ communityUserModel.communityModel.name == communityUser.communityModel.name ? 'active' : '' }}">
-                <a href="/{{communityUser.communityModel.name}}">{{communityUserModel.communityModel.name}}</a>
+                <a href="/{{communityUser.communityModel.name}}">{{communityUser.communityModel.name}}</a>
             </li>
             {% endfor %}
         </ul>
