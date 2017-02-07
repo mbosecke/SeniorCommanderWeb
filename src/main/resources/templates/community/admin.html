@@ -6,10 +6,10 @@
     <div class="row">
         <div class="col-md-9">
 
-            <!-- DASHBOARD -->
-            <h2 id="dashboard">Dashboard</h2>
+            <!-- GENERAL -->
+            <h2 id="dashboard">General</h2>
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/dashboard" method="POST">
-                {{ successMessage(twitchFormSuccessMessage) }}
+                {{ successMessage(generalSuccessMessage) }}
 
                 <fieldset disabled>
 
@@ -27,8 +27,27 @@
 
             <!-- TWITCH -->
             <h2 id="twitch">Twitch</h2>
+            {{ successMessage(twitchSuccessMessage) }}
+
+            <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/manage-channel">
+                <input type="hidden" name="channelId" value="{{twitchChannel.id}}"/>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Status</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-static">{{twitchChannelStatus? 'Running' : 'Stopped'}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Actions</label>
+                    <div class="btn-group col-sm-9" role="group">
+                        <button type="submit" class="btn btn-sm btn-success" name="action" value="start">Start</button>
+                        <button type="submit" class="btn btn-sm btn-danger" name="action" value="stop">Stop</button>
+                        <button type="submit" class="btn btn-sm btn-warning" name="action" value="restart">Restart</button>
+                    </div>
+                </div>
+            </form>
+
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/twitch" method="POST">
-                {{ successMessage(twitchFormSuccessMessage) }}
 
                 <fieldset disabled>
                     <div class="form-group">
@@ -60,8 +79,27 @@
 
             <!-- DISCORD -->
             <h2 id="discord">Discord</h2>
+            {{ successMessage(discordSuccessMessage) }}
+
+            <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/manage-channel">
+                <input type="hidden" name="channelId" value="{{discordChannel.id}}"/>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Status</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-static">{{discordChannelStatus? 'Running' : 'Stopped'}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Actions</label>
+                    <div class="btn-group col-sm-9" role="group">
+                        <button type="submit" class="btn btn-sm btn-success" name="action" value="start">Start</button>
+                        <button type="submit" class="btn btn-sm btn-danger" name="action" value="stop">Stop</button>
+                        <button type="submit" class="btn btn-sm btn-warning" name="action" value="restart">Restart</button>
+                    </div>
+                </div>
+            </form>
+
             <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/discord" method="POST">
-                {{ successMessage(discordFormSuccessMessage) }}
 
                 <fieldset disabled>
                     <div class="form-group">

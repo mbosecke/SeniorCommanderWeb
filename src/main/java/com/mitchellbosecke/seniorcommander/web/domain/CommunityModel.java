@@ -27,6 +27,9 @@ public class CommunityModel {
     @OneToMany(mappedBy = "communityModel", cascade = CascadeType.ALL)
     private Set<CommunitySettingModel> settings;
 
+    @Column
+    private String server;
+
     public long getId() {
         return id;
     }
@@ -67,6 +70,14 @@ public class CommunityModel {
         this.settings = settings;
     }
 
+    public String getServer() {
+        return server;
+    }
+
+    public void setServer(String server) {
+        this.server = server;
+    }
+
     @Transient
     public String getSetting(String key) {
         String result = null;
@@ -79,10 +90,10 @@ public class CommunityModel {
     }
 
     @Transient
-    public ChannelModel getChannel(String type){
+    public ChannelModel getChannel(String type) {
         ChannelModel result = null;
-        for(ChannelModel channel : channelModels){
-            if(channel.getType().equalsIgnoreCase(type)){
+        for (ChannelModel channel : channelModels) {
+            if (channel.getType().equalsIgnoreCase(type)) {
                 result = channel;
                 break;
             }

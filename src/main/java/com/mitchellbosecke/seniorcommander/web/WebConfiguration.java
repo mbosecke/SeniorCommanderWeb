@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
 @Configuration
-public class WebConfiguration  {
+public class WebConfiguration {
 
     @Bean
     public MessageSource messageSource() {
@@ -20,11 +20,8 @@ public class WebConfiguration  {
         return messageSource;
     }
 
-
-
-
     @Bean
-    public SpringExtension springExtension(){
+    public SpringExtension springExtension() {
         return new SpringExtension();
     }
 

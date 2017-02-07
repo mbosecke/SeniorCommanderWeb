@@ -1,5 +1,6 @@
 package com.mitchellbosecke.seniorcommander.web.controller;
 
+import com.mitchellbosecke.seniorcommander.web.domain.ChannelModel;
 import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
 import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
 import com.mitchellbosecke.seniorcommander.web.security.CommunityPermissions;
@@ -49,10 +50,13 @@ public class CommunityController {
     private ChatLogService chatLogService;
 
     @Autowired
+    private ChannelService channelService;
+
+    @Autowired
     private Environment environment;
 
     @RequestMapping("/{communityName}")
-    public String community(@PathVariable String communityName){
+    public String community(@PathVariable String communityName) {
         return "redirect:/" + communityName + "/dashboard";
     }
 
@@ -131,14 +135,21 @@ public class CommunityController {
         }
         CommunityUserModel communityUserModel = communityUserService.findCommunityUserModel(communityName);
         ModelAndView mav = new ModelAndView("community/admin", model);
+
+        ChannelModel twitchChannel = communityUserModel.getCommunityModel().getChannel("irc");
+        ChannelModel discordChannel = communityUserModel.getCommunityModel().getChannel("discord");
+
         mav.addObject("pointsOnline", communityUserModel.getCommunityModel().getSetting("points.online"));
-        mav.addObject("twitchChannel", communityUserModel.getCommunityModel().getChannel("irc"));
-        mav.addObject("discordChannel", communityUserModel.getCommunityModel().getChannel("discord"));
+        mav.addObject("twitchChannel", twitchChannel);
+        mav.addObject("twitchChannelStatus", channelService.status(communityName, twitchChannel.getId()));
+        mav.addObject("discordChannel", discordChannel);
+        mav.addObject("discordChannelStatus", channelService.status(communityName, discordChannel.getId()));
         addCommonMavObjects(request, mav, communityName, "admin");
         return mav;
     }
 
-    private void addCommonMavObjects(HttpServletRequest request, ModelAndView mav, String communityName, String activeTab) {
+    private void addCommonMavObjects(HttpServletRequest request, ModelAndView mav, String communityName,
+                                     String activeTab) {
         CommunityUserModel communityUserModel = communityUserService.findCommunityUserModel(communityName);
         mav.addObject("username", SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
         mav.addObject("communityUserModels", communityUserService.findMemberships());
@@ -149,14 +160,11 @@ public class CommunityController {
 
         // points name
         String pointsPlural = communityUserModel.getCommunityModel().getSetting("points.plural");
-        mav.addObject("pointsPlural", pointsPlural == null? "Points" : pointsPlural);
+        mav.addObject("pointsPlural", pointsPlural == null ? "Points" : pointsPlural);
 
         // community profile pic url
         TwitchApi twitchApi = new TwitchApi(environment.getProperty("twitch.clientId"));
         mav.addObject("communityLogo", twitchApi.channel(communityName).getLogo());
-
-
-
 
     }
 }
