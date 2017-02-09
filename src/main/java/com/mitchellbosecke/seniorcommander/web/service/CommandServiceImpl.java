@@ -1,10 +1,10 @@
 package com.mitchellbosecke.seniorcommander.web.service;
 
-import com.mitchellbosecke.seniorcommander.web.domain.CommandModel;
-import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
+import com.mitchellbosecke.seniorcommander.domain.AccessLevel;
+import com.mitchellbosecke.seniorcommander.domain.CommandModel;
+import com.mitchellbosecke.seniorcommander.domain.CommunityUserModel;
 import com.mitchellbosecke.seniorcommander.web.repository.CommandModelRepository;
 import com.mitchellbosecke.seniorcommander.web.repository.CommunityUserModelRepository;
-import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

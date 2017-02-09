@@ -1,6 +1,7 @@
 package com.mitchellbosecke.seniorcommander.web.security;
 
-import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
+import com.mitchellbosecke.seniorcommander.domain.AccessLevel;
+import com.mitchellbosecke.seniorcommander.domain.CommunityUserModel;
 import com.mitchellbosecke.seniorcommander.web.repository.CommunityUserModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,7 +1,7 @@
 package com.mitchellbosecke.seniorcommander.web.service;
 
-import com.mitchellbosecke.seniorcommander.web.domain.ChannelModel;
-import com.mitchellbosecke.seniorcommander.web.domain.CommunityModel;
+import com.mitchellbosecke.seniorcommander.domain.ChannelModel;
+import com.mitchellbosecke.seniorcommander.domain.CommunityModel;
 import com.mitchellbosecke.seniorcommander.web.repository.ChannelModelRepository;
 import com.mitchellbosecke.seniorcommander.web.repository.CommunityRepository;
 import org.springframework.beans.factory.annotation.Autowired;

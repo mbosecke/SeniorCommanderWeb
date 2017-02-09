@@ -1,6 +1,6 @@
 package com.mitchellbosecke.seniorcommander.web.service;
 
-import com.mitchellbosecke.seniorcommander.web.domain.QuoteModel;
+import com.mitchellbosecke.seniorcommander.domain.QuoteModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

@@ -1,8 +1,8 @@
 package com.mitchellbosecke.seniorcommander.web.controller;
 
-import com.mitchellbosecke.seniorcommander.web.domain.ChannelModel;
-import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
-import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
+import com.mitchellbosecke.seniorcommander.domain.AccessLevel;
+import com.mitchellbosecke.seniorcommander.domain.ChannelModel;
+import com.mitchellbosecke.seniorcommander.domain.CommunityUserModel;
 import com.mitchellbosecke.seniorcommander.web.security.CommunityPermissions;
 import com.mitchellbosecke.seniorcommander.web.service.*;
 import com.mitchellbosecke.twitchapi.TwitchApi;

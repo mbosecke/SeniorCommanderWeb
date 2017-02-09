@@ -1,6 +1,6 @@
 package com.mitchellbosecke.seniorcommander.web.service;
 
-import com.mitchellbosecke.seniorcommander.web.domain.TimerModel;
+import com.mitchellbosecke.seniorcommander.domain.TimerModel;
 import com.mitchellbosecke.seniorcommander.web.repository.TimerModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

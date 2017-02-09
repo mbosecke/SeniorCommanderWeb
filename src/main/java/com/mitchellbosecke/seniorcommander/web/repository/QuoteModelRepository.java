@@ -1,6 +1,6 @@
 package com.mitchellbosecke.seniorcommander.web.repository;
 
-import com.mitchellbosecke.seniorcommander.web.domain.QuoteModel;
+import com.mitchellbosecke.seniorcommander.domain.QuoteModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

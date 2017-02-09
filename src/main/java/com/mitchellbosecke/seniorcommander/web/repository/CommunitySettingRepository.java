@@ -1,6 +1,6 @@
 package com.mitchellbosecke.seniorcommander.web.repository;
 
-import com.mitchellbosecke.seniorcommander.web.domain.CommunitySettingModel;
+import com.mitchellbosecke.seniorcommander.domain.CommunitySettingModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

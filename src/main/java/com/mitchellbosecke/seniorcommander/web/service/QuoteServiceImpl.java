@@ -1,6 +1,6 @@
 package com.mitchellbosecke.seniorcommander.web.service;
 
-import com.mitchellbosecke.seniorcommander.web.domain.QuoteModel;
+import com.mitchellbosecke.seniorcommander.domain.QuoteModel;
 import com.mitchellbosecke.seniorcommander.web.repository.QuoteModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

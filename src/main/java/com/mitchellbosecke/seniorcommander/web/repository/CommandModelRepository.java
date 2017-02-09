@@ -1,7 +1,7 @@
 package com.mitchellbosecke.seniorcommander.web.repository;
 
-import com.mitchellbosecke.seniorcommander.web.domain.CommandModel;
-import com.mitchellbosecke.seniorcommander.web.security.AccessLevel;
+import com.mitchellbosecke.seniorcommander.domain.AccessLevel;
+import com.mitchellbosecke.seniorcommander.domain.CommandModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

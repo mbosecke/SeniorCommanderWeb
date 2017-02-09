@@ -1,6 +1,5 @@
 package com.mitchellbosecke.seniorcommander.web.service;
 
-import com.mitchellbosecke.seniorcommander.web.domain.Highlight;
 
 import java.util.List;
 

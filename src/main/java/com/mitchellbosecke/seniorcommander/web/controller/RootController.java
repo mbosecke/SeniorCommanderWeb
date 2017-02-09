@@ -1,6 +1,6 @@
 package com.mitchellbosecke.seniorcommander.web.controller;
 
-import com.mitchellbosecke.seniorcommander.web.domain.CommunityUserModel;
+import com.mitchellbosecke.seniorcommander.domain.CommunityUserModel;
 import com.mitchellbosecke.seniorcommander.web.service.CommunityUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;

@@ -1,7 +1,7 @@
 package com.mitchellbosecke.seniorcommander.web.service;
 
-import com.mitchellbosecke.seniorcommander.web.domain.CommunityModel;
-import com.mitchellbosecke.seniorcommander.web.domain.CommunitySettingModel;
+import com.mitchellbosecke.seniorcommander.domain.CommunityModel;
+import com.mitchellbosecke.seniorcommander.domain.CommunitySettingModel;
 import com.mitchellbosecke.seniorcommander.web.repository.CommunityRepository;
 import com.mitchellbosecke.seniorcommander.web.repository.CommunitySettingRepository;
 import org.springframework.beans.factory.annotation.Autowired;

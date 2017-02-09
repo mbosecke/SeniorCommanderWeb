@@ -1,6 +1,6 @@
 package com.mitchellbosecke.seniorcommander.web.service;
 
-import com.mitchellbosecke.seniorcommander.web.domain.ChatLogModel;
+import com.mitchellbosecke.seniorcommander.domain.ChatLogModel;
 import com.mitchellbosecke.seniorcommander.web.repository.ChatLogModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

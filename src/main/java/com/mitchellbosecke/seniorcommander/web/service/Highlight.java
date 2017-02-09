@@ -1,4 +1,6 @@
-package com.mitchellbosecke.seniorcommander.web.domain;
+package com.mitchellbosecke.seniorcommander.web.service;
+
+import com.mitchellbosecke.seniorcommander.domain.CommunityUserModel;
 
 /**
  * Created by mitch_000 on 2016-10-10.
