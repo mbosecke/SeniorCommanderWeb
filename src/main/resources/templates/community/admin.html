@@ -6,25 +6,6 @@
     <div class="row">
         <div class="col-md-9">
 
-            <!-- GENERAL -->
-            <h2 id="dashboard">General</h2>
-            <form class="form-horizontal" action="/admin/{{communityUserModel.communityModel.name}}/dashboard" method="POST">
-                {{ successMessage(generalSuccessMessage) }}
-
-                <fieldset disabled>
-
-                    <div class="form-group">
-                        {{ label('customDomain', 'Custom domain') }}
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="customDomain" id="customDomain" placeholder="Coming Soon">
-                            <span class="help-block">Make sure to setup an A record on a root domain or a CNAME record on a subdomain.</span>
-                        </div>
-                    </div>
-
-                    {{ submit() }}
-                </fieldset>
-            </form>
-
             <!-- TWITCH -->
             <h2 id="twitch">Twitch</h2>
             {{ successMessage(twitchSuccessMessage) }}
